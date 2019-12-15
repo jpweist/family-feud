@@ -101,7 +101,6 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // text-align: center;
 }
 
 .info-button {
@@ -117,3 +116,28 @@ input {
   font-size: 1em;
 }
 
+.answers td, .answers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.page-two-bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.answer-input {
+  width: 20%;
+  font-size: 0.5em;
+  height: 2em;
+  margin: auto;
+}
+
+.submit-button {
+  width: 20.5%;
+  height: 4.5em;
+  margin: auto;
+  border-radius: none;
+  background: black;
+  color: white;
+}
