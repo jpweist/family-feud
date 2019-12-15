@@ -1,10 +1,12 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: #505CCD;
 $logo-font: 'Girassol', cursive;
+$body-font: 'Lato', sans-serif;
 $logo-color: #EFE043;
 
 body {
   display: flex;
+  flex-direction: column;
   background-color: $primary-background;
 }
 
@@ -43,3 +45,44 @@ body {
   text-shadow: 0px 0px 5px #000000;
   margin-top: 40px;
 }
+
+.instructions {
+  margin: auto;
+  width: 50%;
+}
+
+.instructions-header {
+  text-align: center;
+  font-family: $logo-font;
+  font-size: 2em;
+  color: white;
+}
+
+.instructions-text {
+  font-size: 1.5em;
+  color: white;
+  line-height: 1.5em;
+  font-family: $body-font;
+  text-align: center;
+}
+
+// label {
+//   display: block;
+// }
+
+input {
+  display: block;
+}
+
+.player-input {
+  display: flex;
+  justify-content: row;
+  flex-wrap: wrap;
+  font-family: $body-font;
+  color: #f4eeb7;
+  align-content: space-between;
+  margin: auto;
+  width: 80%;
+  // display: inline-flex;
+}
+
