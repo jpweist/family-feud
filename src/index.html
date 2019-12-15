@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+      <link href="https://fonts.googleapis.com/css?family=Girassol|Lato&display=swap" rel="stylesheet">
+    <title>Family Feud</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
+    <div class="logo-bg">
+      <section class="logo">
+        <h1 class="ff-logo"> Family Feud </h1>
+      </section>
+    </div>
+    <section class="instructions">
+      <h2 class="instructions-header">INSTRUCTIONS</h2>
+      <p class="instructions-text">
+        This special edition of Family Feud is a two-player experience.  <br>
+        Each full game is made up of three seperate rounds.  <br>
+        For every turn, alternate between Player 1 and Player 2. <br> 
+        Each player is asked a question that has been surveyed to 100 people. <br>
+        For each answer that matches anything in our survey responses, that player will recieve points proportional to the amount of respondents that had that same answer. <br> <br>
 
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+        The third round is a Fast Money round, where each player gets thirty seconds to provide as many responses as they can think of.
+        The winner is determined by the player with the highest total score at the end of three rounds. 
+      </p>
+    </section>
+    <section class="player-input">
+      <form class="player-names">
+        <label for="player1">
+          Player 1 Name
+        </label>
+        <input type="text"></input>
+        <label for="player2">
+            Player 2 Name
+          </label>
+          <input type="text"></input>
+          <input type="button" value="Start Game"></input>
+      </form>
+    </section>
   </body>
+  <link rel="stylesheet" href="base.scss">
+
 </html>
