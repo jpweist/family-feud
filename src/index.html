@@ -5,14 +5,15 @@
     <title>Family Feud</title>
   </head>
   <body>
-    <!-- <div class="logo-bg">
-      <section class="logo">
-        <h1 class="ff-logo"> Family Feud </h1>
-      </section>
-    </div>
-    <section class="instructions">
-      <h2 class="instructions-header">INSTRUCTIONS</h2>
-      <p class="instructions-text">
+    <section class="instructions-page">
+      <div class="logo-bg">
+        <section class="logo">
+          <h1 class="ff-logo"> Family Feud </h1>
+        </section>
+      </div>
+      <section class="instructions">
+        <h2 class="instructions-header">INSTRUCTIONS</h2>
+        <p class="instructions-text">
         This special edition of Family Feud is a two-player experience.  <br>
         Each full game is made up of three seperate rounds.  <br>
         For every turn, alternate between Player 1 and Player 2. <br>
@@ -21,25 +22,26 @@
 
         The third round is a Fast Money round, where each player gets thirty seconds to provide as many responses as they can think of.
         The winner is determined by the player with the highest total score at the end of three rounds.
-      </p>
-    </section>
-    <section class="player-input">
-      <form class="player-names">
-        <label for="player1">
+        </p>
+      </section>
+      <section class="player-input">
+        <form class="player-names">
+          <label for="player1">
           Player 1 Name
-        </label>
-        <input type="text"></input>
-        <label for="player2">
-            Player 2 Name
           </label>
           <input type="text"></input>
-          <input type="button" id="start" value="Start Game"></input>
-      </form>
-    </section> -->
-    <section class="page-two-top">
-    <button class="info-button">i</button>
-    </section>
-    <section class="player-turn">
+          <label for="player2">
+            Player 2 Name
+            </label>
+            <input type="text"></input>
+            <input type="button" id="start" value="Start Game"></input>
+          </form>
+        </section>
+      </section>
+    <section class="gameplay-page">
+      <section class="page-two-top">
+        <button class="info-btn">i</button>
+      </section>
       <h1 class="current-turn">It's Player 1's turn!</h1>
       <h2 class="question">Name Something You Do To An Item Before Giving It As A Gift</h2>
       <table class="answers">
@@ -54,11 +56,11 @@
         </tr>
       </table>
 <!-- Answers -->
-      <section class="page-two-bottom">
+      <form label="Answer input" class="answer-form">
         <h3 class="answer">Enter Answer:</h3>
         <input type="text" class="answer-input" placeholder="Type your answer" />
-        <button class="submit-button">Submit</button>
-      </section>
+        <button class="submit-btn">Submit</button>
+      </form>
   </section>
   </body>
   <link rel="stylesheet" href="base.scss">
