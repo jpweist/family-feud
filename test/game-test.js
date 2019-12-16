@@ -51,4 +51,21 @@ describe('Game Class', function() {
     expect(game1.turn.answers).to.deep.equal({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 })
   });
 
+  it.skip('should have a method to to get surveys', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to start round', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to start fast round', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to make players', function() {
+    expect(true).to.equal(false);
+  });
+
+
 });

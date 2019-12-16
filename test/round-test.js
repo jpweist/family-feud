@@ -30,6 +30,30 @@ describe('Round Class', function() {
 
   it('should hold the roundCount', function() {
     expect(round1.roundCount).to.equal(1);
+  });
+
+  it.skip('should hold the players guesses', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should hold answers revealed', function() {
+    expect(true).to.equal(false);
+  })
+
+  it.skip('should have a method to toggle players', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to show winner', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to start new round', function() {
+    expect(true).to.equal(false);
+  });
+
+  it.skip('should have a method to keep guessed answers', function() {
+    expect(true).to.equal(false);
   })
 
 });
