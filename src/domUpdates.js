@@ -1,11 +1,13 @@
 import $ from 'jquery';
 
+// Variables
+let playerName = $('.player-name')
+let startBtn = $('.start-btn');
+
 $( document ).ready(function() {
   console.log("ready jQuery");
 }
 );
-
-$(".info-btn").click(openInfo);
 
 function openInfo() {
   $(".gameplay-page").append(`
@@ -37,3 +39,43 @@ function openInfo() {
 function closeInfo() {
   $(".info-container").remove()
 }
+
+const startGame = () => {
+  $('.instructions-page').toggleClass('hide-class');
+  displayGamePage()
+}
+
+const displayGamePage = () => {
+  document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
+  <section class="gameplay-page">
+    <section class="page-two-top"> 
+      <button class="info-btn">i</button>
+    </section>
+  <section class="player-turn">
+    <h1 class="current-turn">It's ${playerName[0].value || playerName[1].value}'s turn!</h1>
+    <h2 class="question">Name Something You Do To An Item Before Giving It As A Gift</h2>
+    <table class="answers">
+      <tr>
+        <td>Buy it</td><td>4</td>
+      </tr>
+      <tr>
+        <td>Remove Price tag</td><td>27</td>
+      </tr>
+      <tr>
+        <td>Wrap it</td><td>61</td>
+      </tr>
+    </table>
+Answers 
+      <form label="Answer input" class="answer-form">
+       <h3 class="answer">Enter Answer:</h3>
+        <input type="text" class="answer-input" placeholder="Type your answer" />
+        <button class="submit-btn">Submit</button>
+      </form>
+    </section>
+    </section>`
+  )
+}
+
+// Event Listeners
+$(startBtn).on('click', startGame);
+$(".info-btn").click(openInfo);
