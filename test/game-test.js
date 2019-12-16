@@ -14,7 +14,7 @@ let game1, surveys1, answers1, playerT1, playerT2, turn1, round1;
 describe('Game Class', function() {
   beforeEach(() => {
     surveys1 = { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' };
-    // answers1 = { answer: 'Alarm Clock', respondents: 34, surveyId: 3 };
+    answers1 = { answer: 'Alarm Clock', respondents: 34, surveyId: 3 };
     playerT1 = new Player('Steve');
     playerT2 = new Player('Jeff');
     turn1 = new Turn(playerT1, answers1);
@@ -28,21 +28,27 @@ describe('Game Class', function() {
   });
 
   it('should hold round player1 name', function() {
-    expect(game1.round.player1.name).to.deep.equal('Steve');
+    expect(game1.round.player1.name).to.equal('Steve');
   });
 
   it('should hold round.player1 score', function() {
-    expect(game1.round.player1.score).to.deep.equal(0);
+    expect(game1.round.player1.score).to.equal(0);
   });
 
   it('should hold round.player2 name', function() {
-    expect(game1.round.player2.name).to.deep.equal('Jeff');
+    expect(game1.round.player2.name).to.equal('Jeff');
   });
 
   it('should hold round.player2 score', function() {
-    expect(game1.round.player2.score).to.deep.equal(0);
+    expect(game1.round.player2.score).to.equal(0);
   });
 
+  it('should hold turn current player', function() {
+    expect(game1.turn.player.name).to.equal('Steve')
+  });
 
+  it('should hold the turn answers', function() {
+    expect(game1.turn.answers).to.deep.equal({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 })
+  });
 
 });
