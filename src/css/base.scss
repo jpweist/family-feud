@@ -83,6 +83,61 @@ input {
   align-content: space-between;
   margin: auto;
   width: 80%;
-  // display: inline-flex;
 }
 
+//page two
+
+.page-two-top {
+  display: flex;
+  align-items: space-between;
+  width: 100%;
+}
+
+.player-turn {
+  font-family: $logo-font;
+  font-size: 2.5em;
+  color: $logo-color;
+  text-shadow: 0px 0px 5px #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-button {
+  background: white;
+  border-radius: 180px;
+  color: #505CCD;
+  font-size: 2em;
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.question {
+  font-size: 1em;
+}
+
+.answers td, .answers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.page-two-bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.answer-input {
+  width: 20%;
+  font-size: 0.5em;
+  height: 2em;
+  margin: auto;
+}
+
+.submit-button {
+  width: 20.5%;
+  height: 4.5em;
+  margin: auto;
+  border-radius: none;
+  background: black;
+  color: white;
+}
