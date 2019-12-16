@@ -11,4 +11,15 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+let apiData;
+let apiDataAnswers;
+let apiDataSurveys;
+
+function getApiData() {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+  .then(response => response.json())
+  .then(data => apiData = data.data)
+  .catch(error => console.log(error))
+  return apiData;
+}
+getApiData();
