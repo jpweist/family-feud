@@ -3,7 +3,7 @@
 
 // An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
-import domUpdates from './domUpdates.js'
+// import domUpdates from './domUpdates.js'
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
