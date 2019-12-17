@@ -1,14 +1,13 @@
 import $ from 'jquery';
-
+import apiData from '../src/index.js'
 // Variables
 let playerName = $('.player-name')
 let startBtn = $('.start-btn');
 
 $( document ).ready(function() {
-  console.log("ready jQuery");
+  // console.log("ready jQuery");
 }
 );
-
 function openInfo() {
   $(".gameplay-page").append(`
     <section class="info-container">
