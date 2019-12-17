@@ -179,7 +179,7 @@ input {
 
 //page two
 
-.page-two-top {
+.gameplay-top {
   display: flex;
   align-items: space-between;
   width: 100%;
@@ -211,11 +211,6 @@ input {
 .answers td, .answers th {
   border: 1px solid #ddd;
   padding: 8px;
-}
-
-.page-two-bottom {
-  display: flex;
-  flex-direction: row;
 }
 
 .answer-input {
