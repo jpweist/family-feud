@@ -90,21 +90,23 @@ const displayGamePage = () => {
 // }
 
 const displayError = () => {
+  $('.start-btn').prop('disabled', true);
   if (playerName[0].value) {
-    $('.error1').addClass('hide-class');
-    $('.start-btn').prop('disabled', false);
+    $('.error1').removeClass('in').addClass('out');
   }
   if (!playerName[0].value) {
-    $('.error1').removeClass('hide-class');
+    $('.error1').removeClass('out').addClass('in');
     $('.start-btn').prop('disabled', true);
   }
   if (playerName[1].value) {
-    $('.error2').addClass('hide-class');
+    $('.error2').removeClass('in').addClass('out');
     $('.start-btn').prop('disabled', false);
   }
   if (!playerName[1].value) {
-    $('.error2').removeClass('hide-class');
+    $('.error2').removeClass('out').addClass('in');
     $('.start-btn').prop('disabled', true);
+  } else if (playerName.value) {
+    $('.start-btn').prop('disabled', false);
   }
 }
 
