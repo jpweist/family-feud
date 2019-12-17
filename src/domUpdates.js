@@ -79,16 +79,6 @@ const displayGamePage = () => {
 }
 
 
-
-// const displayError = () => {
-//   if (!playerName.value) {
-//     $('.error1').addClass('hide-class');
-//   }
-//   if (playerName.value) {
-//     $('.error1').removeClass('hide-class')
-//   }
-// }
-
 const displayError = () => {
   $('.start-btn').prop('disabled', true);
   if (playerName[0].value) {
@@ -109,7 +99,6 @@ const displayError = () => {
     $('.start-btn').prop('disabled', false);
   }
 }
-
 
 // Event Listeners
 $(startBtn).on('click', startGame);
