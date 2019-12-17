@@ -15,8 +15,8 @@ let apiData;
 let apiDataAnswers;
 let apiDataSurveys;
 
-async function getApiData() {
-  await fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
+function getApiData() {
+  fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
   .then(response => response.json())
   .then(data => apiData = data.data)
   .catch(error => console.log(error))

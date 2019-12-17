@@ -44,6 +44,12 @@ const startGame = () => {
   console.log('asdf');
   $('.instructions-page').toggleClass('hide-class');
   displayGamePage()
+  instantiatePlayers();
+}
+
+const instantiatePlayers = () => {
+  let player1 = new Player(playerName[0].value);
+  let player2 = new Player(playerName[1].value);
 }
 
 const displayGamePage = () => {
