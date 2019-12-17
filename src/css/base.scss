@@ -3,14 +3,107 @@ $logo-font: 'Girassol', cursive;
 $body-font: 'Lato', sans-serif;
 $logo-color: #EFE043;
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  background-color: $primary-background;
+  // background-color: $primary-background;
+}
+
+.main-container {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/ninja-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .hide-class {
   display: none;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-prefix {
+  margin: 5% 0 0 0;
+  font-size: 2em;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.main-title {
+  font-family: $logo-font;
+  font-size: 7em;
+  margin: 0 0 3% 0;
+  // color: #fff;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+
+.back-story {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-content {
+  font-size: 1.3em;
+  align-self: center;
+  width: 60%;
+  text-align: center;
+  line-height: 1.5em;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: $logo-font;
+  font-size: 1.5em;
+  height: 100px;
+  margin-top: 3%1
+}
+
+.plyr-container {
+  width: 25%;
+  height: 100%;
+  color: #fff;
+}
+
+.plyr-input {
+  width: 100%;
+  height: 30%;
+  font-size: .7em;
+  font-family: 'Raleway', sans-serif;
+  padding-left: 10px;
+}
+
+.player-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-btn {
+  width: 30%;
+  height: 40px;;
+  align-self: center;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  background: transparent;
+  color: #fff;
 }
 
 .logo-bg {
@@ -86,12 +179,6 @@ input {
 
 //page two
 
-.page-two-top {
-  display: flex;
-  align-items: space-between;
-  width: 100%;
-}
-
 .gameplay-page {
   font-family: $logo-font;
   font-size: 2.5em;
@@ -102,17 +189,41 @@ input {
   justify-content: center;
 }
 
-.info-button {
+.gameplay-top {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.info-btn {
   background: white;
-  border-radius: 180px;
+  border-radius: 50%;
   color: #505CCD;
-  font-size: 2em;
-  width: 1.3em;
-  height: 1.3em;
+  font-size: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  align-self: flex-start;
+  margin: 1%;
+}
+
+.current-turn {
+  align-self: center;
+  margin-bottom: 2%;
+  font-size: .8em;
 }
 
 .question {
-  font-size: 1em;
+  font-size: .9em;
+  text-align: center;
+}
+
+.answers-container {
+  display: flex;
+  justify-content: center;
+}
+
+.answers {
+  width: 60%;
 }
 
 .answers td, .answers th {
@@ -120,9 +231,10 @@ input {
   padding: 8px;
 }
 
-.page-two-bottom {
-  display: flex;
-  flex-direction: row;
+.answer-label {
+  text-align: center;
+  font-size: .7em;
+  margin-top: 3%;
 }
 
 .answer-input {
@@ -130,15 +242,23 @@ input {
   font-size: 0.5em;
   height: 2em;
   margin: auto;
+  margin-top: 3%;
+  padding-left: 5px;
 }
 
-.submit-button {
+.answer-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-btn {
   width: 20.5%;
   height: 4.5em;
-  margin: auto;
   border-radius: none;
   background: black;
   color: white;
+  margin: 3%;
 }
 
 .info-container {

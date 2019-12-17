@@ -8,6 +8,9 @@ import Player from './player';
 import Game from './game';
 import Turn from './turn';
 import Round from './round';
+
+
+// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
 
@@ -29,3 +32,4 @@ function startGame(data) {
   game1 = new Game(data);
   console.log(game1);
 }
+
