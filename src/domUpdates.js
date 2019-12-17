@@ -49,7 +49,7 @@ const startGame = () => {
 const displayGamePage = () => {
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
-    <section class="page-two-top">
+    <section class="gameplay-top">
       <button class="info-btn">i</button>
     </section>
     <section class="player-turn">
