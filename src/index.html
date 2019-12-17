@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-      <link href="https://fonts.googleapis.com/css?family=Girassol|Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Girassol|Raleway&display=swap" rel="stylesheet">
     <title>Family Feud</title>
   </head>
-
   <body>
     <section class="main-container">
       <section class="instructions-page">
-        <div class="logo-bg">
+        <!-- <div class="logo-bg">
           <section class="logo">
             <h1 class="ff-logo"> Family Feud </h1>
           </section>
-        </div>
-        <section class="instructions">
+        </div> -->
+        <header class="title-container">
+          <p class="title-prefix">The Epic Battle of</p>
+          <h1 class="main-title">Ninjas VS Zombies</h1>
+        </header>
+        <section class="back-story">
+          <p class="story-content">The year is 2020.</p>
+          <p class="story-content">An unknown zombie virus has spread wildly across the Americas, Europe, and now Asia.  These continents have very few survivors due to the takeover and a very small group of highly skilled professionals have banded together for the cause.</p>
+          <p class="story-content">You arise from your slumber in a cold dark alley.  The game is to kill or be killed.  Which side are you on?</p>
+        </section>
+        <!-- <section class="instructions">
           <h2 class="instructions-header">INSTRUCTIONS</h2>
           <p class="instructions-text">
             This special edition of Family Feud is a two-player experience.  <br>
@@ -25,20 +33,30 @@
             The third round is a Fast Money round, where each player gets thirty seconds to provide as many responses as they can think of.
             The winner is determined by the player with the highest total score at the end of three rounds.
           </p>
-        </section>
-        <section class="player-input">
+        </section> -->
+        <!-- <section class="player-input"> -->
           <form class="player-names">
-            <label for="player1">
+            <!-- <label for="player1">
               Player 1 Name
             </label>
             <input class="player-name" type="text"></input>
             <label for="player2">
               Player 2 Name
             </label>
-            <input class="player-name" type="text"></input>
-            <input type="button" class="start-btn" id="start" value="Start Game"></input>
+            <input class="player-name" type="text"></input> -->
+            <section class="input-container">
+              <div class="plyr-container">
+                <label class="plyr-label">The Ninja</label>
+                <input class="plyr-input" type="text"></input>
+              </div>
+              <div class="plyr-container">
+                <label class="plyr-label">The Zombie</label>
+                <input class="plyr-input" type="text"></input>
+              </div>
+            </section>
+            <button type="button" class="start-btn" id="start" value="Start Game">Start Game</input>
           </form>
-        </section>
+        <!-- </section> -->
       </section>
     </section>
   </body>

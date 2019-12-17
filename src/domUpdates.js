@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 // Variables
-let playerName = $('.player-name')
+let playerName = $('.plyr-input');
 let startBtn = $('.start-btn');
 
 $( document ).ready(function() {
@@ -41,6 +41,7 @@ function closeInfo() {
 }
 
 const startGame = () => {
+  console.log('asdf');
   $('.instructions-page').toggleClass('hide-class');
   displayGamePage()
 }
