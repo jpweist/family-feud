@@ -41,7 +41,6 @@ function closeInfo() {
 }
 
 const startGame = () => {
-  console.log('asdf');
   $('.instructions-page').toggleClass('hide-class');
   displayGamePage()
 }
@@ -79,5 +78,37 @@ const displayGamePage = () => {
   $(".info-btn").click(openInfo);
 }
 
+
+
+// const displayError = () => {
+//   if (!playerName.value) {
+//     $('.error1').addClass('hide-class');
+//   }
+//   if (playerName.value) {
+//     $('.error1').removeClass('hide-class')
+//   }
+// }
+
+const displayError = () => {
+  if (playerName[0].value) {
+    $('.error1').addClass('hide-class');
+    $('.start-btn').prop('disabled', false);
+  }
+  if (!playerName[0].value) {
+    $('.error1').removeClass('hide-class');
+    $('.start-btn').prop('disabled', true);
+  }
+  if (playerName[1].value) {
+    $('.error2').addClass('hide-class');
+    $('.start-btn').prop('disabled', false);
+  }
+  if (!playerName[1].value) {
+    $('.error2').removeClass('hide-class');
+    $('.start-btn').prop('disabled', true);
+  }
+}
+
+
 // Event Listeners
 $(startBtn).on('click', startGame);
+$(playerName).on('keyup', displayError)
