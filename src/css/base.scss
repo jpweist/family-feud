@@ -111,6 +111,21 @@ body {
   color: #fff;
 }
 
+.out {
+  -webkit-filter: blur(8px);
+  opacity: 0.25;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  visibility: hidden;
+}
+
+.in {
+  -webkit-filter: blur(0px);
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  visibility: visible;
+}
+
 .logo-bg {
   margin: auto;
   margin-top: 50px;
