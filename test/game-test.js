@@ -94,8 +94,12 @@ describe('Game Class', function() {
     expect(game1.player2.score).to.equal(0);
   });
 
-  it.skip('should hold turn current player', function() {
-    expect(game1.turn.player.name).to.equal('Steve')
+  it.skip('should hold and track number of rounds', function() {
+    expect(game1.roundCount).to.equal(0);
+    game1.startRound();
+    expect(game1.roundCount).to.equal(1);
+    game1.startRound();
+    expect(game1.roundCount).to.equal(2);
   });
 
   it.skip('should hold the turn answers', function() {
