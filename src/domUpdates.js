@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import data from '../src/data.js'
+// console.log(data)
 import apiData from '../src/index.js'
 // Variables
 let playerName = $('.plyr-input');
@@ -40,12 +42,12 @@ function closeInfo() {
 }
 
 const startGame = () => {
-  console.log('asdf');
   $('.instructions-page').toggleClass('hide-class');
   displayGamePage()
 }
 
 const displayGamePage = () => {
+  console.log('hi', )
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
     <section class="gameplay-top">
@@ -78,5 +80,27 @@ const displayGamePage = () => {
   $(".info-btn").click(openInfo);
 }
 
+
+const displayError = () => {
+  let noError = false;
+  if (playerName[0].value) {
+    $('.error1').removeClass('in').addClass('out');
+  }
+  if (!playerName[0].value) {
+    $('.error1').removeClass('out').addClass('in');
+  }
+  if (playerName[1].value) {
+    $('.error2').removeClass('in').addClass('out');
+  }
+  if (!playerName[1].value) {
+    $('.error2').removeClass('out').addClass('in');
+  } if (playerName[0].value && playerName[1].value) {
+    noError = true;
+  } if (noError) {
+    startGame()
+  }
+}
+
 // Event Listeners
-$(startBtn).on('click', startGame);
+$(startBtn).on('click', displayError);
+// $(playerName).on('keyup', displayError)
