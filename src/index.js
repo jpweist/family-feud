@@ -5,9 +5,9 @@
 import $ from 'jquery';
 import domUpdates from './domUpdates.js'
 import Player from './player';
-import Game from './game';
 import Turn from './turn';
 import Round from './round';
+import Game from './game';
 
 
 // An example of how you tell webpack to use a CSS (SCSS) file
@@ -32,4 +32,3 @@ function startGame(data) {
   game1 = new Game(data);
   console.log(game1);
 }
-
