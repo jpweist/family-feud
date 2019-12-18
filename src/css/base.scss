@@ -17,6 +17,11 @@ body {
   // background-color: $primary-background;
 }
 
+.error1, .error2 {
+  color: red;
+}
+
+
 .main-container {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/ninja-background.jpg");
   background-repeat: no-repeat;
@@ -104,6 +109,21 @@ body {
   font-family: 'Raleway', sans-serif;
   background: transparent;
   color: #fff;
+}
+
+.out {
+  -webkit-filter: blur(8px);
+  opacity: 0.25;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  visibility: hidden;
+}
+
+.in {
+  -webkit-filter: blur(0px);
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  visibility: visible;
 }
 
 .logo-bg {

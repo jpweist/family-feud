@@ -4,7 +4,7 @@ import data from './data.js';
 import Player from './player';
 import Round from './round';
 
-
+// console.log(data)
 // Variables
 const playerName = $('.plyr-input');
 const startBtn = $('.start-btn');
@@ -82,6 +82,7 @@ const loadAnswers = () => {
 }
 
 const displayGamePage = () => {
+  console.log('hi', )
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
     <section class="gameplay-top">
@@ -114,5 +115,27 @@ const displayGamePage = () => {
   $(".info-btn").click(openInfo);
 }
 
+
+const displayError = () => {
+  let noError = false;
+  if (playerName[0].value) {
+    $('.error1').removeClass('in').addClass('out');
+  }
+  if (!playerName[0].value) {
+    $('.error1').removeClass('out').addClass('in');
+  }
+  if (playerName[1].value) {
+    $('.error2').removeClass('in').addClass('out');
+  }
+  if (!playerName[1].value) {
+    $('.error2').removeClass('out').addClass('in');
+  } if (playerName[0].value && playerName[1].value) {
+    noError = true;
+  } if (noError) {
+    startGame()
+  }
+}
+
 // Event Listeners
-$(startBtn).on('click', startGame);
+$(startBtn).on('click', displayError);
+// $(playerName).on('keyup', displayError)
