@@ -4,7 +4,7 @@ import Round from './round';
 class Game {
   constructor(data) {
     this.data = data;
-    this.surveys = [];
+    this.surveys = data.surveys;
     this.round = {};
     this.roundCount = 1;
     this.player1 = {};
