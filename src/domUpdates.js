@@ -64,18 +64,21 @@ const instantiatePlayers = () => {
 const randomizeSurvey = () => {
   let randomSurvey = data.surveys.find(survey => {
     if (randomNum === survey.id) {
+      loadAnswers();
       let round1 = new Round(survey.question)
       document.querySelector('.question').insertAdjacentHTML('afterbegin', `
-      ${round1.surveys}`
+      ${round1.survey}`
     )}
   })
-
 }
 
+let answers;
 const loadAnswers = () => {
-  let answers = data.answers.filter(answer => {
-    randomNum === answer.surveyId
+  answers = data.answers.filter(answer => {
+    return randomNum === answer.surveyId
   })
+  return answers;
+
 }
 
 const displayGamePage = () => {
