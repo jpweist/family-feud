@@ -1,27 +1,35 @@
 import $ from 'jquery';
-import data from '../src/data.js'
+import apiData from '../src/index.js';
+import data from './data.js';
+import Player from './player';
+import Round from './round';
+
 // console.log(data)
-import apiData from '../src/index.js'
 // Variables
-let playerName = $('.plyr-input');
-let startBtn = $('.start-btn');
+const playerName = $('.plyr-input');
+const startBtn = $('.start-btn');
+let randomNum = Math.floor(Math.random() * 15 + 1);
+let player1, player2;
+
 
 $( document ).ready(function() {
   // console.log("ready jQuery");
+  console.log(randomNum);
 }
 );
+
 function openInfo() {
   $(".gameplay-page").append(`
     <section class="info-container">
       <button class="close-btn">X</button>
       <header class="plyr-info">
         <div class="plyr-section">
-        <p>Player 1</p>
-        <p>Score: 0</p>
+        <p>${player1.name}</p>
+        <p>Score: ${player1.score}</p>
         </div>
         <div class="plyr-section">
-        <p>Player 2</p>
-        <p>Score: 19</p>
+        <p>${player2.name}</p>
+        <p>Score: ${player2.score}</p>
         </div>
       </header>
       <div class="round-info">
@@ -43,7 +51,34 @@ function closeInfo() {
 
 const startGame = () => {
   $('.instructions-page').toggleClass('hide-class');
-  displayGamePage()
+  instantiatePlayers();
+  displayGamePage();
+  randomizeSurvey();
+}
+
+const instantiatePlayers = () => {
+  player1 = new Player(playerName[0].value);
+  player2 = new Player(playerName[1].value);
+}
+
+const randomizeSurvey = () => {
+  let randomSurvey = data.surveys.find(survey => {
+    if (randomNum === survey.id) {
+      loadAnswers();
+      let round1 = new Round(survey.question)
+      document.querySelector('.question').insertAdjacentHTML('afterbegin', `
+      ${round1.survey}`
+    )}
+  })
+}
+
+let answers;
+const loadAnswers = () => {
+  answers = data.answers.filter(answer => {
+    return randomNum === answer.surveyId
+  })
+  return answers;
+
 }
 
 const displayGamePage = () => {
@@ -52,9 +87,9 @@ const displayGamePage = () => {
   <section class="gameplay-page">
     <section class="gameplay-top">
       <button class="info-btn">i</button>
-      <h1 class="current-turn">It's ${playerName[0].value || playerName[1].value}'s turn!</h1>
+      <h1 class="current-turn">It's ${player1.name}'s turn!</h1>
     </section>
-      <h2 class="question">Name Something You Do To An Item Before Giving It As A Gift</h2>
+      <h2 class="question"></h2>
       <div class="answers-container">
         <table class="answers">
           <tr>
