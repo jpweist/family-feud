@@ -1,16 +1,15 @@
 import $ from 'jquery';
 import data from '../src/data.js'
-
-console.log(data)
+// console.log(data)
+import apiData from '../src/index.js'
 // Variables
 let playerName = $('.plyr-input');
 let startBtn = $('.start-btn');
 
 $( document ).ready(function() {
-  console.log("ready jQuery");
+  // console.log("ready jQuery");
 }
 );
-
 function openInfo() {
   $(".gameplay-page").append(`
     <section class="info-container">
