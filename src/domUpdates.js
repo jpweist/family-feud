@@ -1,5 +1,12 @@
 import $ from 'jquery';
-import apiData from '../src/index.js'
+import apiData from '../src/index.js';
+
+import Player from './player';
+import Game from './game';
+import Turn from './turn';
+import Round from './round';
+import './index';
+
 // Variables
 let playerName = $('.plyr-input');
 let startBtn = $('.start-btn');
@@ -43,6 +50,10 @@ const startGame = () => {
   console.log('asdf');
   $('.instructions-page').toggleClass('hide-class');
   displayGamePage()
+  game.getPlayers(playerName[0].value, playerName[1].value);
+  game.findSurveys();
+  console.log(playerName[0].value, playerName[1].value);
+
 }
 
 const displayGamePage = () => {

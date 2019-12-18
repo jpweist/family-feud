@@ -15,7 +15,7 @@ import './css/base.scss';
 
 
 
-let player1, player2, game1;
+let player1, player2, game;
 let apiDataAnswers;
 let apiDataSurveys;
 
@@ -29,7 +29,7 @@ getApiData();
 
 // console.log(apiData);
 function startGame(data) {
-  game1 = new Game(data);
-  console.log(game1);
+  game = new Game(data);
+  game.findSurveys();
+  console.log(game);
 }
-
