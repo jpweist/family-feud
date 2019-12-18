@@ -1,8 +1,11 @@
 import $ from 'jquery';
 import apiData from '../src/index.js';
-import data from './data.js';
 import Player from './player';
+import Game from './game';
+import Turn from './turn';
 import Round from './round';
+import './index';
+import data from './data.js';
 
 // console.log(data)
 // Variables
@@ -51,6 +54,8 @@ function closeInfo() {
 
 const startGame = () => {
   $('.instructions-page').toggleClass('hide-class');
+  game.findSurveys();
+  console.log(playerName[0].value, playerName[1].value);
   instantiatePlayers();
   displayGamePage();
   randomizeSurvey();
