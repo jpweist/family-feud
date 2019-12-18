@@ -1,5 +1,7 @@
 import $ from 'jquery';
+import data from '../src/data.js'
 
+console.log(data)
 // Variables
 let playerName = $('.plyr-input');
 let startBtn = $('.start-btn');
@@ -46,6 +48,7 @@ const startGame = () => {
 }
 
 const displayGamePage = () => {
+  console.log('hi', )
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
     <section class="gameplay-top">
@@ -80,26 +83,25 @@ const displayGamePage = () => {
 
 
 const displayError = () => {
-  $('.start-btn').prop('disabled', true);
+  let noError = false;
   if (playerName[0].value) {
     $('.error1').removeClass('in').addClass('out');
   }
   if (!playerName[0].value) {
     $('.error1').removeClass('out').addClass('in');
-    $('.start-btn').prop('disabled', true);
   }
   if (playerName[1].value) {
     $('.error2').removeClass('in').addClass('out');
-    $('.start-btn').prop('disabled', false);
   }
   if (!playerName[1].value) {
     $('.error2').removeClass('out').addClass('in');
-    $('.start-btn').prop('disabled', true);
-  } else if (playerName.value) {
-    $('.start-btn').prop('disabled', false);
+  } if (playerName[0].value && playerName[1].value) {
+    noError = true;
+  } if (noError) {
+    startGame()
   }
 }
 
 // Event Listeners
-$(startBtn).on('click', startGame);
-$(playerName).on('keyup', displayError)
+$(startBtn).on('click', displayError);
+// $(playerName).on('keyup', displayError)
