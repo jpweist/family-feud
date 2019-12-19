@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates.js'
+
 class Player {
   constructor(name) {
     this.name = name;
@@ -5,6 +7,7 @@ class Player {
   }
   updateScore(points) {
     this.score += points;
+    domUpdates.displayNewScore(this.score);
   }
 
 }
