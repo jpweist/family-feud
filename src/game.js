@@ -4,7 +4,7 @@ import Round from './round';
 class Game {
   constructor(data) {
     this.data = data;
-    this.surveys = data.surveys;
+    this.surveys = [];
     this.round = {};
     this.roundCount = 1;
     this.player1 = {};
@@ -22,12 +22,11 @@ class Game {
   }
   startRound() {
     this.round = new Round(
-      this.surveys,
+      this.survey,
       this.player1.name,
       this.player2.name,
       this.round.currentPlayer
     );
-
   }
 }
 export default Game;
