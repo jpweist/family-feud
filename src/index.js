@@ -17,13 +17,9 @@ const getApiData = () => {
 }
 getApiData();
 
-// console.log(apiData);
 function startGame(data) {
-  // console.log(data);
   game = new Game(data.data);
   game.findSurveys();
-  // console.log(game);
-  loadDOM(game);
 }
 
 $(".start-btn").click(() => {
@@ -50,10 +46,12 @@ if (!playerName[1].value) {
   domUpdates.loadDOM();
 }
 }
-// Event Listeners
 
+function flipCard() {
+  // console.log('hi')
+  $(this).toggleClass("flip");
+}
+// Event Listeners
+$(".answer-card").click(flipCard);
 $(".info-btn").click(domUpdates.openInfo)
 $(".close-btn").click(domUpdates.closeInfo)
-
-export default game;
-
