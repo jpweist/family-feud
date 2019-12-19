@@ -8,8 +8,9 @@ import './index';
 import data from './data.js';
 
 const domUpdates = {
-  openInfo() {
+  openInfo(player1) {
     $(".info-container").toggle(".hide-class")
+    $(".plyr1-score").text(player1.score)
   },
 
   closeInfo() {
@@ -32,7 +33,9 @@ const domUpdates = {
   },
 
   displayGamePage() {
-    $(".gameplay-page").toggle(".hide-class")
+    $(".gameplay-page").toggle(".hide-class");
+    $(".p1-name").text($('.plyr-input:eq(0)').val());
+    $(".p2-name").text($('.plyr-input:eq(1)').val());
   },
 
   checkInput() {
