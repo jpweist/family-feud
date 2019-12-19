@@ -8,6 +8,7 @@ import './index';
 import data from './data.js';
 
 const domUpdates = {
+  // Event Listeners
   openInfo() {
     $(".gameplay-page").append(`
       <section class="info-container">
@@ -42,35 +43,17 @@ const domUpdates = {
   loadDOM() {
   $('.instructions-page').toggleClass('hide-class');
   // game.findSurveys();
-  instantiatePlayers();
   displayGamePage();
-  randomizeSurvey();
-  console.log('load dom')
-  },
-
-  instantiatePlayers() {
-  player1 = new Player(playerName[0].value);
-  player2 = new Player(playerName[1].value);
   },
 
   randomizeSurvey() {
-  console.log(Game.data)
   let randomSurvey = data.surveys.find(survey => {
     if (randomNum === survey.id) {
-      loadAnswers();
       let round1 = new Round(survey.question)
       document.querySelector('.question').insertAdjacentHTML('afterbegin', `
       ${round1.survey}`
     )}
   })
-  },
-
-
-  loadAnswers() {
-  answers = data.answers.filter(answer => {
-    return randomNum === answer.surveyId
-  })
-  return answers;
   },
 
   displayGamePage() {
@@ -107,7 +90,7 @@ const domUpdates = {
   $(".info-btn").click(openInfo);
   },
 
-  displayError() {
+  checkInput() {
   let noError = false;
   if (playerName[0].value) {
     $('.error1').removeClass('in').addClass('out');
@@ -127,13 +110,10 @@ const domUpdates = {
   }
   },
 }
-// Event Listeners
-$(startBtn).on('click', displayError);
+
 
 const playerName = $('.plyr-input');
-const startBtn = $('.start-btn');
-let randomNum = Math.floor(Math.random() * 15 + 1);
+// let randomNum = Math.floor(Math.random() * 15 + 1);
 let player1, player2;
-let answers;
 
 export default domUpdates;
