@@ -122,8 +122,7 @@ describe('Game Class', function() {
   });
 
   it.only('should have a method to start the round', function() {
-    game1.getPlayers('jim', 'cody');
-    game1.findSurveys()
+    game1.findSurveys(gameData.answers)
     expect(game1.round).to.deep.equal({
       surveys: [
         ['If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?'],
