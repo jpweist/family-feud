@@ -16,8 +16,8 @@ describe('Round Class', function() {
 
   });
 
-  it('should hold the surveys data', function() {
-    expect(round1.surveys).to.deep.equal({ id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' });
+  it('should hold the one survey data', function() {
+    expect(round1.survey).to.deep.equal({ id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' });
   });
 
   it('should hold player1 name', function() {

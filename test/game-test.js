@@ -28,7 +28,10 @@ describe('Game Class', function() {
         { id: 3, question: 'Name A Good Gift For Someone Who Is Always Late.' }
       ],
       answers: [
-          { answer: 'Alarm Clock', respondents: 34, surveyId: 3 }
+        { answer: 'Alarm Clock', respondents: 34, surveyId: 3 },
+        { answer: 'Beer', respondents: 67, surveyId: 1 },
+        { answer: 'Bowling Ball', respondents: 5, surveyId: 1 },
+
       ]
       };
     surveys1 = { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' };
@@ -59,10 +62,11 @@ describe('Game Class', function() {
         { id: 1, question: 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?' },
         { id: 2, question: 'Name Something You Do To An Item Before Giving It As A Gift' },
         { id: 3, question: 'Name A Good Gift For Someone Who Is Always Late.' }
-
       ],
       answers: [
-          { answer: 'Alarm Clock', respondents: 34, surveyId: 3 }
+        { answer: 'Alarm Clock', respondents: 34, surveyId: 3 },
+        { answer: 'Beer', respondents: 67, surveyId: 1 },
+        { answer: 'Bowling Ball', respondents: 5, surveyId: 1 },
       ]
       });
   });
@@ -117,14 +121,21 @@ describe('Game Class', function() {
     expect(game1.surveys.length).to.equal(3);
   });
 
-  it('should have a method to start the round', function() {
-    game1.startRound(playerT1, playerT2, 1);
-    game1.findSurveys();
+  it.only('should have a method to start the round', function() {
+    game1.getPlayers('jim', 'cody');
+    game1.findSurveys()
     expect(game1.round).to.deep.equal({
-      surveys:
-       [ 'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?',
-         'Name Something You Do To An Item Before Giving It As A Gift',
-         'Name A Good Gift For Someone Who Is Always Late.' ],
+      surveys: [
+        ['If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?'],
+        ['Name Something You Do To An Item Before Giving It As A Gift'],
+        ['Name A Good Gift For Someone Who Is Always Late.'],
+      ],
+      answers: [
+        { answer: 'Alarm Clock', respondents: 34, surveyId: 3 },
+        { answer: 'Beer', respondents: 67, surveyId: 1 },
+        { answer: 'Bowling Ball', respondents: 5, surveyId: 1 },
+      ],
+
       player1: 'steve',
       player2: 'mike',
       roundCount: 1 });

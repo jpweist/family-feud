@@ -17,7 +17,7 @@ let player1, player2;
 
 $( document ).ready(function() {
   // console.log("ready jQuery");
-  console.log(randomNum);
+  // console.log(randomNum);
 }
 );
 
@@ -52,13 +52,15 @@ function closeInfo() {
   $(".info-container").remove()
 }
 
-const startGame = () => {
+const loadDOM = (game) => {
   $('.instructions-page').toggleClass('hide-class');
-  game.findSurveys();
-  console.log(playerName[0].value, playerName[1].value);
+  // game.findSurveys();
+  // game.startRound();
+  // console.log(playerName[0].value, playerName[1].value);
   instantiatePlayers();
   displayGamePage();
   randomizeSurvey();
+  // console.log('loadDOM', game);
 }
 
 const instantiatePlayers = () => {
@@ -87,7 +89,7 @@ const loadAnswers = () => {
 }
 
 const displayGamePage = () => {
-  console.log('hi', )
+  // console.log('hi', )
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
     <section class="gameplay-top">
@@ -137,10 +139,12 @@ const displayError = () => {
   } if (playerName[0].value && playerName[1].value) {
     noError = true;
   } if (noError) {
-    startGame()
+    loadDOM()
   }
 }
 
 // Event Listeners
 $(startBtn).on('click', displayError);
 // $(playerName).on('keyup', displayError)
+
+export default loadDOM;
