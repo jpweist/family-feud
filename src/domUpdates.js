@@ -37,10 +37,23 @@ const domUpdates = {
   },
 
   displayNewQuestion(question) {
-    console.log(question.survey)
+    // console.log(question)
     $('.question').text(question.survey)
-    this.displayAnswers();
-  }
+  },
+
+  displayAnswers(answers) {
+    // console.log(answers);
+    for (var i = 0; i < 3; i++) {
+      $(`.answer${i + 1}`).text(answers[i].answer)
+    }
+  },
+
+  displayRespondents(respondents) {
+    console.log(respondents)
+    for (var i = 0; i < 3; i++) {
+      $(`.respondent${i + 1}`).text(respondents[i].respondents)
+    }
+  } 
 }
 
 export default domUpdates;

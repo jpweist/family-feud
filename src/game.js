@@ -33,7 +33,7 @@ class Game {
     this.surveys.forEach(survey =>
       survey.answers.sort((a, b) => b.respondents - a.respondents)
     );
-    console.log('Game this.surveys', this.surveys[0])
+    // console.log('Game this.surveys', this.surveys[0])
     this.startRound();
   }
 
@@ -45,13 +45,20 @@ class Game {
       this.round.currentPlayer
     );
     this.loadSurvey();
+    this.loadAnswers();
+    this.loadRespondents();
   }
-  loadSurvey() {
 
-    // console.log(this.surveys)
-    for (var i = 0; i < this.surveys.length; i++) {
-      domUpdates.displayNewQuestion(this.surveys[i])
-    }
+  loadSurvey() {
+    domUpdates.displayNewQuestion(this.surveys[0])
+  }
+
+  loadAnswers() {
+    domUpdates.displayAnswers(this.surveys[0].answers)
+  }
+
+  loadRespondents() {
+    domUpdates.displayRespondents(this.surveys[0].answers)
   }
 }
 export default Game;
