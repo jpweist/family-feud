@@ -33,6 +33,13 @@ const domUpdates = {
   loadPlayerNames() {
     $(".p1-name").text($('.plyr-input:eq(0)').val());
     $(".p2-name").text($('.plyr-input:eq(1)').val());
+    this.displayNewQuestion();
+  },
+
+  displayNewQuestion(question) {
+    console.log(question.survey)
+    $('.question').text(question.survey)
+    this.displayAnswers();
   }
 }
 
