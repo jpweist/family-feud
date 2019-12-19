@@ -38,13 +38,11 @@ class Game {
 
   startRound() {
     this.round = new Round(
-      this.surveys,
+      this.survey,
       this.player1.name,
       this.player2.name,
       this.round.currentPlayer
     );
-    // console.log(this.surveys)
-
   }
 }
 export default Game;

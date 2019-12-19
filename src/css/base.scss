@@ -1,6 +1,5 @@
-$primary-background: #505CCD;
 $logo-font: 'Girassol', cursive;
-$body-font: 'Lato', sans-serif;
+$body-font: 'Raleway', sans-serif;
 $logo-color: #EFE043;
 
 *,
@@ -14,13 +13,11 @@ $logo-color: #EFE043;
 body {
   display: flex;
   flex-direction: column;
-  // background-color: $primary-background;
 }
 
 .error1, .error2 {
   color: red;
 }
-
 
 .main-container {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/ninja-background.jpg");
@@ -29,10 +26,6 @@ body {
   background-size: cover;
   height: 100vh;
   overflow: scroll;
-}
-
-.hide-class {
-  display: none;
 }
 
 .title-container {
@@ -57,7 +50,7 @@ body {
 }
 
 .back-story {
-  font-family: 'Raleway', sans-serif;
+  font-family: $body-font;
   display: flex;
   flex-direction: column;
 }
@@ -92,7 +85,7 @@ body {
   width: 100%;
   height: 30%;
   font-size: .7em;
-  font-family: 'Raleway', sans-serif;
+  font-family: $body-font;
   padding-left: 10px;
 }
 
@@ -106,9 +99,13 @@ body {
   height: 40px;;
   align-self: center;
   font-size: 1em;
-  font-family: 'Raleway', sans-serif;
+  font-family: $body-font;
   background: transparent;
   color: #fff;
+}
+
+.p1-name {
+  display: inline-block;
 }
 
 .out {
@@ -331,4 +328,8 @@ input {
 .close-btn {
   align-self: flex-end;
   margin-right: 6%;
+}
+
+.hide-class {
+  display: none;
 }
