@@ -30,7 +30,7 @@ class Game {
       return { survey: survey.question, answers: answers };
     });
     this.surveys.forEach(survey =>
-      survey.answers.sort((a, b) => a.respondents - b.respondents)
+      survey.answers.sort((a, b) => b.respondents - a.respondents)
     );
     // console.log('Game this.surveys', this.surveys)
     this.startRound();
@@ -43,7 +43,7 @@ class Game {
       this.player2.name,
       this.round.currentPlayer
     );
-    console.log(this.surveys)
+    // console.log(this.surveys)
 
   }
 }
