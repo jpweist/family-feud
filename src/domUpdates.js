@@ -7,66 +7,54 @@ import Round from './round';
 import './index';
 import data from './data.js';
 
-// console.log(data)
-// Variables
-const playerName = $('.plyr-input');
-const startBtn = $('.start-btn');
-let randomNum = Math.floor(Math.random() * 15 + 1);
-let player1, player2;
-
-
-$( document ).ready(function() {
-  // console.log("ready jQuery");
-  console.log(randomNum);
-}
-);
-
-function openInfo() {
-  $(".gameplay-page").append(`
-    <section class="info-container">
-      <button class="close-btn">X</button>
-      <header class="plyr-info">
-        <div class="plyr-section">
-        <p>${player1.name}</p>
-        <p>Score: ${player1.score}</p>
+const domUpdates = {
+  openInfo() {
+    $(".gameplay-page").append(`
+      <section class="info-container">
+        <button class="close-btn">X</button>
+        <header class="plyr-info">
+          <div class="plyr-section">
+          <p>${player1.name}</p>
+          <p>Score: ${player1.score}</p>
+          </div>
+          <div class="plyr-section">
+            <p>${player2.name}</p>
+            <p>Score: ${player2.score}</p>
+          </div>
+        </header>
+        <div class="round-info">
+        <p>ROUND</p>
+        <p>1</p>
         </div>
-        <div class="plyr-section">
-        <p>${player2.name}</p>
-        <p>Score: ${player2.score}</p>
+        <button class="leaderboard-btn">Leaderboard</button>
+        <div class="new-quit-container">
+          <button class="new-game-btn">New Game</button>
+          <button class="quit-game-btn">Quit Game</button>
         </div>
-      </header>
-      <div class="round-info">
-      <p>ROUND</p>
-      <p>1</p>
-      </div>
-      <button class="leaderboard-btn">Leaderboard</button>
-      <div class="new-quit-container">
-        <button class="new-game-btn">New Game</button>
-        <button class="quit-game-btn">Quit Game</button>
-      </div>
-    </section>`)
+      </section>`)
   $(".close-btn").click(closeInfo);
-}
+  },
 
-function closeInfo() {
-  $(".info-container").remove()
-}
+  closeInfo() {
+    $(".info-container").remove();
+  },
 
-const startGame = () => {
+  loadDOM() {
   $('.instructions-page').toggleClass('hide-class');
-  game.findSurveys();
-  console.log(playerName[0].value, playerName[1].value);
+  // game.findSurveys();
   instantiatePlayers();
   displayGamePage();
   randomizeSurvey();
-}
+  console.log('load dom')
+  },
 
-const instantiatePlayers = () => {
+  instantiatePlayers() {
   player1 = new Player(playerName[0].value);
   player2 = new Player(playerName[1].value);
-}
+  },
 
-const randomizeSurvey = () => {
+  randomizeSurvey() {
+  console.log(Game.data)
   let randomSurvey = data.surveys.find(survey => {
     if (randomNum === survey.id) {
       loadAnswers();
@@ -75,18 +63,17 @@ const randomizeSurvey = () => {
       ${round1.survey}`
     )}
   })
-}
+  },
 
-let answers;
-const loadAnswers = () => {
+
+  loadAnswers() {
   answers = data.answers.filter(answer => {
     return randomNum === answer.surveyId
   })
   return answers;
+  },
 
-}
-
-const displayGamePage = () => {
+  displayGamePage() {
   console.log('hi', )
   document.querySelector('.main-container').insertAdjacentHTML('afterbegin', `
   <section class="gameplay-page">
@@ -118,10 +105,9 @@ const displayGamePage = () => {
   </section>`
   )
   $(".info-btn").click(openInfo);
-}
+  },
 
-
-const displayError = () => {
+  displayError() {
   let noError = false;
   if (playerName[0].value) {
     $('.error1').removeClass('in').addClass('out');
@@ -137,10 +123,17 @@ const displayError = () => {
   } if (playerName[0].value && playerName[1].value) {
     noError = true;
   } if (noError) {
-    startGame()
+    loadDOM()
   }
+  },
 }
-
 // Event Listeners
 $(startBtn).on('click', displayError);
-// $(playerName).on('keyup', displayError)
+
+const playerName = $('.plyr-input');
+const startBtn = $('.start-btn');
+let randomNum = Math.floor(Math.random() * 15 + 1);
+let player1, player2;
+let answers;
+
+export default domUpdates;
