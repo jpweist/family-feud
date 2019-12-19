@@ -28,13 +28,16 @@ const startGame = (data) => {
 $(".start-btn").click(() => {
   game.getPlayers($(".plyr-input:eq(0)").val(), $(".plyr-input:eq(1)").val());
   domUpdates.checkInput()
+
 })
-
+// below is work in progress
 const doThing = e => {
-  if($(e.target).hasClass("info-btn")) {
-  $(".player1-score").text(game.player1.score)
-  }
+  game.player1.updateScore(50);
+  console.log(game.player1.score)
+  $(".p1-score").html(game.player1.score)
 }
+$(".leaderboard-btn").click(doThing)
 
-$(".info-btn").click(domUpdates.openInfo);
+$(".info-btn").click(domUpdates.openInfo)
+
 $(".close-btn").click(domUpdates.closeInfo)
