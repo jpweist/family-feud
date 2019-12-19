@@ -236,8 +236,10 @@ input {
 }
 
 .answers-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 80%;
 }
 
 .answers {
@@ -328,6 +330,37 @@ input {
 .close-btn {
   align-self: flex-end;
   margin-right: 6%;
+}
+
+.answer-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: scale(1);
+  transition: transform .3s;
+  position: relative;
+}
+
+.answer-card:active {
+   transform: scale(0.97);
+   transition: transform .1s;
+ }
+
+.answer-card.flip {
+  transform: rotateY(180deg);
+}
+
+.reveal-answer,
+.hidden-answer {
+  backface-visibility: hidden;
+}
+
+.reveal-answer {
+  transform: rotateY(180deg);
+}
+
+.hidden-answer {
+  background-color: blue;
 }
 
 .hide-class {
