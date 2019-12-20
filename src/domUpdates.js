@@ -33,7 +33,23 @@ const domUpdates = {
   loadPlayerNames() {
     $(".p1-name").text($('.plyr-input:eq(0)').val());
     $(".p2-name").text($('.plyr-input:eq(1)').val());
-  }
+  },
+
+  displayNewQuestion(question) {
+    $('.question').text(question.survey)
+  },
+
+  displayAnswers(answers) {
+    for (var i = 0; i < 3; i++) {
+      $(`.answer${i + 1}`).text(answers[i].answer)
+    }
+  },
+
+  displayRespondents(respondents) {
+    for (var i = 0; i < 3; i++) {
+      $(`.respondent${i + 1}`).text(respondents[i].respondents)
+    }
+  } 
 }
 
 export default domUpdates;

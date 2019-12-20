@@ -1,6 +1,7 @@
 import Player from './player';
 import Round from './round';
-
+import domUpdates from '../src/domUpdates.js'
+// import domUpdates from '.src/domUpdates.js'
 class Game {
   constructor(data) {
     this.data = data;
@@ -32,7 +33,7 @@ class Game {
     this.surveys.forEach(survey =>
       survey.answers.sort((a, b) => b.respondents - a.respondents)
     );
-    // console.log('Game this.surveys', this.surveys)
+    // console.log('Game this.surveys', this.surveys[0])
     this.startRound();
   }
 
@@ -43,6 +44,21 @@ class Game {
       this.player2.name,
       this.round.currentPlayer
     );
+    this.loadSurvey();
+    this.loadAnswers();
+    this.loadRespondents();
+  }
+
+  loadSurvey() {
+    domUpdates.displayNewQuestion(this.surveys[0])
+  }
+
+  loadAnswers() {
+    domUpdates.displayAnswers(this.surveys[0].answers)
+  }
+
+  loadRespondents() {
+    domUpdates.displayRespondents(this.surveys[0].answers)
   }
 }
 export default Game;
