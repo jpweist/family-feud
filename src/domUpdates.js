@@ -1,10 +1,10 @@
 import $ from 'jquery';
-import apiData from '../src/index.js';
+// import apiData from '../src/index.js';
 import Player from './player';
 import Game from './game';
 import Turn from './turn';
 import Round from './round';
-import './index';
+// import './index';
 import data from './data.js';
 
 const domUpdates = {
@@ -49,8 +49,7 @@ const domUpdates = {
     for (var i = 0; i < 3; i++) {
       $(`.respondent${i + 1}`).text(respondents[i].respondents)
     }
-  } 
+  }
 }
 
 export default domUpdates;
-
