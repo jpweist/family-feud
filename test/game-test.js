@@ -1,18 +1,22 @@
+import $ from 'jquery';
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
 import data from '../src/data';
+import domUpdates from '../src/domUpdates';
 import Game from '../src/game';
 import Player from '../src/player';
 import Turn from '../src/turn';
 import Round from '../src/round';
 
+chai.use(spies);
 
 let game1, surveys1, answers1, playerT1, playerT2, turn1, round1, gameData;
 
-
-
 describe('Game Class', function() {
   beforeEach(() => {
+    chai.spy.on(domUpdates, ['displayNewScore', 'displayNewQuestion', 'displayAnswers', 'displayRespondents'], () => {})
+
     gameData = {
       response_code: {
         version: '1.5',
@@ -47,6 +51,10 @@ describe('Game Class', function() {
 
   });
 
+  afterEach(() => {
+    chai.spy.restore();
+  });
+  
   it('should hold the data', function() {
 
     expect(game1.data).to.deep.equal({
@@ -85,9 +93,9 @@ describe('Game Class', function() {
   });
 
   it('should hold round.player2 name', function() {
-    game1.getPlayers('Jeff', 'Mike');
-    game1.findSurveys();
-    game1.startRound('Jeff', 'Mike', 1);
+    // game1.getPlayers('Jeff', 'Mike');
+    // game1.findSurveys();
+    // game1.startRound('Jeff', 'Mike', 1);
     expect(game1.player1.name).to.equal('Jeff');
   });
 

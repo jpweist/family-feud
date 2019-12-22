@@ -1,12 +1,22 @@
+import $ from 'jquery';
 import chai from 'chai';
 const expect = chai.expect;
+import spies from 'chai-spies';
 import Player from '../src/player';
+import domUpdates from '../src/domUpdates';
 let player1, player2;
+
+chai.use(spies);
 
 describe('Player Class', function() {
   beforeEach(() => {
+    chai.spy.on(domUpdates, ['displayNewScore', 'displayNewQuestion', 'displayAnswers', 'displayRespondents'], () => {})
     player1 = new Player('Steve');
     player2 = new Player('Jeff');
+  });
+
+  afterEach(() => {
+    chai.spy.restore();
   });
 
   it('Should have a name',function() {
