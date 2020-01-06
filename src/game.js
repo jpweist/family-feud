@@ -1,7 +1,8 @@
+import $ from 'jquery';
 import Player from './player';
 import Round from './round';
 import domUpdates from '../src/domUpdates.js'
-// import domUpdates from '.src/domUpdates.js'
+
 class Game {
   constructor(data) {
     this.data = data;
