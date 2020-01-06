@@ -63,8 +63,7 @@ function checkAnswer() {
   game.surveys[0].answers.forEach(response => {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
-      console.log('yay')
-      doThing(i);
+      doThing(i, response);
     } else {
       console.log('wrong.')
     }
@@ -72,8 +71,10 @@ function checkAnswer() {
   })
 }
 
-function doThing(i) {
+function doThing(i, response) {
   if(answerInput.val().toLowerCase() === $(`.answer${i}`).text().toLowerCase()) {
+    game.player1.updateScore(response.respondents)
+    console.log(game.player1.score)
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
   }
 }
