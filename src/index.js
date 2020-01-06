@@ -58,10 +58,10 @@ function flipCard() {
 function checkAnswer() {
   event.preventDefault();
   let currentAnswers = []
-  game.surveys.forEach(response => {
-    currentAnswers.push(response.answers[0].answer)
+  game.surveys[0].answers.forEach(response => {
+    currentAnswers.push(response.answer.toLowerCase())
   })
-  if (currentAnswers.includes(answerInput.val())) {
+  if (currentAnswers.includes(answerInput.val().toLowerCase())) {
     console.log('yay')
   } else {
     console.log('wrong.')
