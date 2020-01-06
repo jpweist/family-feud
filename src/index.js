@@ -8,6 +8,9 @@ import './css/base.scss';
 let game;
 
 const playerName = $('.plyr-input');
+let answerInput = $('.answer-input')
+
+
 
 const getApiData = () => {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
@@ -51,7 +54,22 @@ function flipCard() {
   // console.log('hi')
   $(this).toggleClass("flip");
 }
+
+function checkAnswer() {
+  event.preventDefault();
+  let currentAnswers = []
+  game.surveys.forEach(response => {
+    currentAnswers.push(response.answers[0].answer)
+  })
+  if (currentAnswers.includes(answerInput.val())) {
+    console.log('yay')
+  } else {
+    console.log('wrong.')
+  }
+}
+
 // Event Listeners
 $(".answer-card").click(flipCard);
 $(".info-btn").click(domUpdates.openInfo)
 $(".close-btn").click(domUpdates.closeInfo)
+$(".submit-btn").click(checkAnswer);
