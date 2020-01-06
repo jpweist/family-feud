@@ -33,8 +33,8 @@ const domUpdates = {
     $(".info-container").toggle(".hide-class")
   },
 
-  displayNewScore(score) {
-    $(".p1-score").text(score);
+  displayNewScore(score, turn) {
+    $(`.p${turn}-score`).text(score);
   },
 
   loadDOM() {

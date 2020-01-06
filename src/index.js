@@ -6,11 +6,10 @@ import domUpdates from './domUpdates.js'
 import Game from './game';
 import './css/base.scss';
 let game;
+let turn = 1;
 
 const playerName = $('.plyr-input');
 let answerInput = $('.answer-input')
-
-
 
 const getApiData = () => {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
@@ -27,6 +26,8 @@ function startGame(data) {
 
 $(".start-btn").click(() => {
   game.getPlayers($(".plyr-input:eq(0)").val(), $(".plyr-input:eq(1)").val());
+  console.log(game.player1)
+  console.log(game.player2)
   checkInput()
 })
 
@@ -63,19 +64,20 @@ function checkAnswer() {
   game.surveys[0].answers.forEach(response => {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
-      doThing(i, response);
-      answerInput.val("")
+      takeTurn(i, response, turn);
     } else {
       console.log('wrong.')
     }
     i++;
   })
+  answerInput.val("");
+  turn === 1 ? turn = 2 : turn = 1;
 }
-
-function doThing(i, response) {
+function takeTurn(i, response, turn) {
   if(answerInput.val().toLowerCase() === $(`.answer${i}`).text().toLowerCase()) {
-    game.player1.updateScore(response.respondents)
-    console.log(game.player1.score)
+    turn === 1 ?
+    game.player1.updateScore(response.respondents, turn) :
+    game.player2.updateScore(response.respondents, turn);
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
   }
 }
