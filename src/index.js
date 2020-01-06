@@ -70,6 +70,7 @@ function checkAnswer() {
     }
     i++;
   })
+  answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
 }
 function takeTurn(i, response, turn) {
