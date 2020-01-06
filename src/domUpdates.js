@@ -8,6 +8,17 @@ import Round from './round';
 import data from './data.js';
 
 const domUpdates = {
+  newGameBtn() {
+    $(".info-container").toggle(".hide-class");
+    $(".start-new-game-question").toggle(".hide-class");
+
+  },
+  restartGame() {
+    $('.instructions-page').toggle('.hide-class');
+    $(".start-new-game-question").toggle("hide-class");
+    $(".gameplay-page").toggle(".hide-class")
+  },
+
   openInfo(player1) {
     $(".info-container").toggle(".hide-class")
   },
@@ -23,10 +34,13 @@ const domUpdates = {
   loadDOM() {
   $('.instructions-page').toggle('.hide-class');
   this.displayGamePage();
+
+
   },
 
   displayGamePage() {
     $(".gameplay-page").toggle(".hide-class");
+    $(".start-new-game-question").removeClass("hide-class");
     this.loadPlayerNames();
   },
 

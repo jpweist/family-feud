@@ -295,6 +295,20 @@ input {
   padding-top: 5%;
 }
 
+.start-new-game-question {
+  @extend .info-container;
+  display: none;
+  height: 56%;
+  p {
+    text-align: center;
+  }
+}
+.new-game-btn, .quit-game-btn, .new-game-btn-go-back {
+  @extend .new-game-btn
+
+}
+
+
 .plyr-info {
   display: flex;
   justify-content: space-around;
@@ -323,7 +337,8 @@ input {
 }
 
 .new-game-btn,
-.quit-game-btn {
+.quit-game-btn,
+.new-game-btn-check {
   width: 40%;
 }
 
@@ -365,4 +380,7 @@ input {
 
 .hide-class {
   display: none;
+}
+.show-class {
+  display: block;
 }
