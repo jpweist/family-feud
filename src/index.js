@@ -72,4 +72,8 @@ function checkAnswer() {
 $(".answer-card").click(flipCard);
 $(".info-btn").click(domUpdates.openInfo)
 $(".close-btn").click(domUpdates.closeInfo)
+$(".new-game-btn").click(domUpdates.newGameBtn)
+$(".new-game-btn-check").click(domUpdates.restartGame)
+$(".new-game-btn-go-back").click(domUpdates.backToGame);
+$('.quit-game-btn').click(domUpdates.quitGame)
 $(".submit-btn").click(checkAnswer);
