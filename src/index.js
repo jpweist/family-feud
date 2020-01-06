@@ -53,18 +53,28 @@ if (!playerName[1].value) {
 function flipCard() {
   // console.log('hi')
   $(this).toggleClass("flip");
+
 }
 
 function checkAnswer() {
   event.preventDefault();
   let currentAnswers = []
+  let i = 1;
   game.surveys[0].answers.forEach(response => {
     currentAnswers.push(response.answer.toLowerCase())
+    if (currentAnswers.includes(answerInput.val().toLowerCase())) {
+      console.log('yay')
+      doThing(i);
+    } else {
+      console.log('wrong.')
+    }
+    i++;
   })
-  if (currentAnswers.includes(answerInput.val().toLowerCase())) {
-    console.log('yay')
-  } else {
-    console.log('wrong.')
+}
+
+function doThing(i) {
+  if(answerInput.val().toLowerCase() === $(`.answer${i}`).text().toLowerCase()) {
+    $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
   }
 }
 
