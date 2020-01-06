@@ -50,6 +50,7 @@ if (!playerName[1].value) {
 function flipCard() {
   // console.log('hi')
   $(this).toggleClass("flip");
+  
 }
 // Event Listeners
 $(".answer-card").click(flipCard);
