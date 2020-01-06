@@ -64,6 +64,7 @@ function checkAnswer() {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
       doThing(i, response);
+      answerInput.val("")
     } else {
       console.log('wrong.')
     }
