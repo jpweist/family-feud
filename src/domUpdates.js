@@ -14,12 +14,10 @@ const domUpdates = {
 
   },
   restartGame() {
-    $('.instructions-page').toggle('.hide-class');
-    $(".start-new-game-question").toggle("hide-class");
-    $(".gameplay-page").toggle(".hide-class")
+    location.reload();
+
   },
   quitGame() {
-    console.log("quit")
     location.reload();
   },
   backToGame() {
