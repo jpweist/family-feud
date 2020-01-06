@@ -18,6 +18,14 @@ const domUpdates = {
     $(".start-new-game-question").toggle("hide-class");
     $(".gameplay-page").toggle(".hide-class")
   },
+  quitGame() {
+    console.log("quit")
+    location.reload();
+  },
+  backToGame() {
+    $(".start-new-game-question").toggle(".hide-class");
+
+  },
 
   openInfo(player1) {
     $(".info-container").toggle(".hide-class")
