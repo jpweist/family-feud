@@ -52,6 +52,7 @@ class Game {
 
   loadSurvey() {
     domUpdates.displayNewQuestion(this.surveys[0])
+    console.log(this.surveys)
   }
 
   loadAnswers() {
