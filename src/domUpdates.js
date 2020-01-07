@@ -37,11 +37,13 @@ const domUpdates = {
     $(`.p${turn}-score`).text(score);
   },
 
+  displayCurrentRound(round) {
+    $('.round-number').text(round)
+  },
+
   loadDOM() {
   $('.instructions-page').toggle('.hide-class');
   this.displayGamePage();
-
-
   },
 
   displayGamePage() {

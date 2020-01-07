@@ -8,6 +8,8 @@ import './css/base.scss';
 let game;
 let turn = 1;
 
+
+
 const playerName = $('.plyr-input');
 let answerInput = $('.answer-input')
 
@@ -61,7 +63,7 @@ function checkAnswer() {
   event.preventDefault();
   let currentAnswers = []
   let i = 1;
-  game.surveys[0].answers.forEach(response => {
+  game.surveys[game.currentSurvey - 1].answers.forEach(response => {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
       takeTurn(i, response, turn);
@@ -85,7 +87,26 @@ function takeTurn(i, response, turn) {
       game.player1.updateScore(response.respondents, turn) :
       game.player2.updateScore(response.respondents, turn);
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
+    game.solvedCounter ++;
+    nextRound()
+    //insert incrementer , increment.
+    //when solved counter is divisible by 3
+    //move to next round, increment roundCount.
+    //invoke startRound()
+
   } 
+}
+
+function nextRound() {
+  if (game.solvedCounter % 3 === 0) {
+    setTimeout(function () {
+      game.incrementRoundCount()
+      game.loadCurrentRound()
+      game.startRound()
+      $('.answer-card').toggleClass('flip')
+    }, 5000)
+  }
+  console.log(game.solvedCounter)
 }
 
 // Event Listeners
