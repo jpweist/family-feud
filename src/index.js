@@ -7,7 +7,7 @@ import Game from './game';
 import './css/base.scss';
 let game;
 let turn = 1;
-let solvedCounter = 0;
+
 
 
 const playerName = $('.plyr-input');
@@ -87,14 +87,23 @@ function takeTurn(i, response, turn) {
       game.player1.updateScore(response.respondents, turn) :
       game.player2.updateScore(response.respondents, turn);
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
-    solvedCounter += 1;
-    console.log(solvedCounter)
+    game.solvedCounter ++;
+    nextRound()
     //insert incrementer , increment.
     //when solved counter is divisible by 3
     //move to next round, increment roundCount.
     //invoke startRound()
 
   } 
+}
+
+
+function nextRound() {
+  if (game.solvedCounter % 3 === 0) {
+    setTimeout(function () {
+      console.log('testttt')
+    }, 5000)
+  }
 }
 
 // Event Listeners
