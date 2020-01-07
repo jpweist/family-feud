@@ -9,6 +9,7 @@ class Game {
     this.surveys = [];
     this.round = {};
     this.roundCount = 1;
+    this.solvedCounter = 0;
     this.player1 = {};
     this.player2 = {};
   }
