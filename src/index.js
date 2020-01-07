@@ -13,9 +13,9 @@ let answerInput = $('.answer-input')
 
 const getApiData = () => {
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data")
-  .then(response => response.json())
-  .then(apiData => startGame(apiData))
-  .catch(error => console.log(error))
+    .then(response => response.json())
+    .then(apiData => startGame(apiData))
+    .catch(error => console.log(error))
 }
 getApiData();
 
@@ -32,32 +32,32 @@ $(".start-btn").click(() => {
 })
 
 const checkInput = () => {
-let noError = false;
-if (playerName[0].value) {
-  $('.error1').removeClass('in').addClass('out');
-}
-if (!playerName[0].value) {
-  $('.error1').removeClass('out').addClass('in');
-}
-if (playerName[1].value) {
-  $('.error2').removeClass('in').addClass('out');
-}
-if (!playerName[1].value) {
-  $('.error2').removeClass('out').addClass('in');
-} if (playerName[0].value && playerName[1].value) {
-  noError = true;
-} if (noError) {
-  domUpdates.loadDOM();
-}
+  let noError = false;
+  if (playerName[0].value) {
+    $('.error1').removeClass('in').addClass('out');
+  }
+  if (!playerName[0].value) {
+    $('.error1').removeClass('out').addClass('in');
+  }
+  if (playerName[1].value) {
+    $('.error2').removeClass('in').addClass('out');
+  }
+  if (!playerName[1].value) {
+    $('.error2').removeClass('out').addClass('in');
+  } if (playerName[0].value && playerName[1].value) {
+    noError = true;
+  } if (noError) {
+    domUpdates.loadDOM();
+  }
 }
 
 function flipCard() {
   // console.log('hi')
   $(this).toggleClass("flip");
-
 }
 
 function checkAnswer() {
+  changeName()
   event.preventDefault();
   let currentAnswers = []
   let i = 1;
@@ -73,13 +73,19 @@ function checkAnswer() {
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
 }
+
+function changeName() {
+  $('.p2-name' ).toggleClass( "hide-class" )
+  $('.p1-name' ).toggleClass( "hide-class" )
+}
+
 function takeTurn(i, response, turn) {
-  if(answerInput.val().toLowerCase() === $(`.answer${i}`).text().toLowerCase()) {
+  if (answerInput.val().toLowerCase() === $(`.answer${i}`).text().toLowerCase()) {
     turn === 1 ?
-    game.player1.updateScore(response.respondents, turn) :
-    game.player2.updateScore(response.respondents, turn);
+      game.player1.updateScore(response.respondents, turn) :
+      game.player2.updateScore(response.respondents, turn);
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
-  }
+  } 
 }
 
 // Event Listeners
