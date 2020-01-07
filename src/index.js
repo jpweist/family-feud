@@ -63,7 +63,7 @@ function checkAnswer() {
   event.preventDefault();
   let currentAnswers = []
   let i = 1;
-  game.surveys[0].answers.forEach(response => {
+  game.surveys[game.currentSurvey - 1].answers.forEach(response => {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
       takeTurn(i, response, turn);
@@ -106,6 +106,7 @@ function nextRound() {
       $('.answer-card').toggleClass('flip')
     }, 5000)
   }
+  console.log(game.solvedCounter)
 }
 
 // Event Listeners
