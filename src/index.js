@@ -102,6 +102,8 @@ function nextRound() {
     setTimeout(function () {
       game.incrementRoundCount()
       game.loadCurrentRound()
+      game.startRound()
+      $('.answer-card').toggleClass('flip')
     }, 5000)
   }
 }
