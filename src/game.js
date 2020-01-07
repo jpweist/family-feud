@@ -17,6 +17,15 @@ class Game {
     this.player1 = new Player(player1);
     this.player2 = new Player(player2);
   }
+
+  loadCurrentRound() {
+    domUpdates.displayCurrentRound(this.roundCount)
+  }
+
+  incrementRoundCount() {
+    this.roundCount++
+  }
+  
   findSurveys() {
     while (this.surveys.length < 3) {
       let num = Math.ceil(Math.random() * this.data.surveys.length);
