@@ -10,6 +10,7 @@ class Game {
     this.round = {};
     this.roundCount = 1;
     this.solvedCounter = 0;
+    this.currentSurvey = 0;
     this.player1 = {};
     this.player2 = {};
   }
@@ -25,7 +26,7 @@ class Game {
   incrementRoundCount() {
     this.roundCount++
   }
-  
+
   findSurveys() {
     while (this.surveys.length < 3) {
       let num = Math.ceil(Math.random() * this.data.surveys.length);
@@ -55,22 +56,23 @@ class Game {
       this.player2.name,
       this.round.currentPlayer
     );
-    this.loadSurvey();
-    this.loadAnswers();
-    this.loadRespondents();
+    this.loadSurvey(this.currentSurvey);
+    this.loadAnswers(this.currentSurvey);
+    this.loadRespondents(this.currentSurvey);
+    this.currentSurvey++
   }
 
-  loadSurvey() {
-    domUpdates.displayNewQuestion(this.surveys[0])
+  loadSurvey(i) {
+    domUpdates.displayNewQuestion(this.surveys[i])
     console.log(this.surveys)
   }
 
-  loadAnswers() {
-    domUpdates.displayAnswers(this.surveys[0].answers)
+  loadAnswers(i) {
+    domUpdates.displayAnswers(this.surveys[i].answers)
   }
 
-  loadRespondents() {
-    domUpdates.displayRespondents(this.surveys[0].answers)
+  loadRespondents(i) {
+    domUpdates.displayRespondents(this.surveys[i].answers)
   }
 }
 export default Game;
