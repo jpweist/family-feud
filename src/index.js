@@ -97,11 +97,11 @@ function takeTurn(i, response, turn) {
   } 
 }
 
-
 function nextRound() {
   if (game.solvedCounter % 3 === 0) {
     setTimeout(function () {
-      console.log('testttt')
+      game.incrementRoundCount()
+      game.loadCurrentRound()
     }, 5000)
   }
 }
