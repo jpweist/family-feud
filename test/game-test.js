@@ -90,9 +90,6 @@ describe('Game Class', function() {
   });
 
   it('should hold round.player1 name', function() {
-    // game1.getPlayers('Jeff', 'Mike');
-    // game1.findSurveys();
-    // game1.startRound('Jeff', 'Mike', 1);
     expect(game1.player1.name).to.equal('Steve');
   });
 
@@ -103,12 +100,12 @@ describe('Game Class', function() {
     expect(game1.player2.score).to.equal(0);
   });
 
-  it.skip('should hold and track number of rounds', function() {
-    expect(game1.roundCount).to.equal(0);
-    game1.startRound();
+  it('should hold and track number of rounds', function() {
     expect(game1.roundCount).to.equal(1);
-    game1.startRound();
+    game1.incrementRoundCount();
     expect(game1.roundCount).to.equal(2);
+    game1.incrementRoundCount();
+    expect(game1.roundCount).to.equal(3);
   });
 
   it.skip('should hold the turn answers', function() {
