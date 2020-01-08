@@ -26,8 +26,24 @@ $(".start-btn").click(() => {
   game.getPlayers($(".plyr-input:eq(0)").val(), $(".plyr-input:eq(1)").val());
   checkInput()
   domUpdates.loadPlayerNames(game);
-  $(".ninja-pic").addClass("slide-in")
+  showFirstRound();
 })
+
+function showFirstRound() {
+  $(".ninja-pic").addClass("slide-in")
+  console.log("asf")
+  setTimeout(function() {
+    $(".round-announce").toggleClass("hide-class")
+  }, 3000)
+}
+
+function showNextRound() {
+  $(".round-num").text(game.roundCount + 1)
+  $(".round-announce").toggleClass("hide-class")
+  setTimeout(function() {
+    $(".round-announce").toggleClass("hide-class")
+  }, 3000)
+}
 
 const checkInput = () => {
   let noError = false;
@@ -99,12 +115,13 @@ function takeTurn(i, response, turn) {
 
 function nextRound() {
   if (game.solvedCounter % 3 === 0 && game.solvedCounter !== 9) {
+    showNextRound();
     setTimeout(function () {
       game.incrementRoundCount()
       game.loadCurrentRound()
       game.startRound()
       $('.answer-card').toggleClass('flip')
-    }, 5000)
+    }, 3000)
   }
   checkForWinner()
 }
@@ -113,7 +130,7 @@ function checkForWinner() {
   if (game.solvedCounter === 9) {
     setTimeout(function() {
       domUpdates.displayWinnerPage(game)
-    }, 5000)
+    }, 3000)
   }
 }
 
