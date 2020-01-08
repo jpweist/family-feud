@@ -25,7 +25,7 @@ const domUpdates = {
 
   },
 
-  openInfo(player1) {
+  openInfo() {
     $(".info-container").toggle(".hide-class")
   },
 
@@ -42,19 +42,27 @@ const domUpdates = {
   },
 
   loadDOM() {
-  $('.instructions-page').toggle('.hide-class');
-  this.displayGamePage();
+    $('.instructions-page').toggle('.hide-class');
+    this.displayGamePage();
+  },
+
+  displayWinnerPage(game, score) {
+    $('.winners-page').toggle('.hide-class');
+    $('.winner-name').text(game.player1.name)
+    $('.winner-score').text(game.player1.score);
+
   },
 
   displayGamePage() {
     $(".gameplay-page").toggle(".hide-class");
     $(".start-new-game-question").removeClass("hide-class");
-    this.loadPlayerNames();
+    // this.loadPlayerNames();
   },
 
-  loadPlayerNames() {
-    $(".p1-name").text($('.plyr-input:eq(0)').val());
-    $(".p2-name").text($('.plyr-input:eq(1)').val());
+  loadPlayerNames(game) {
+    // console.log(game.player1)
+    $(".p1-name").text(game.player1.name);
+    $(".p2-name").text(game.player2.name);
   },
 
   displayNewQuestion(question) {
