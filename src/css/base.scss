@@ -1,6 +1,4 @@
-$logo-font: 'Girassol', cursive;
-$body-font: 'Raleway', sans-serif;
-$logo-color: #EFE043;
+@import 'variables';
 
 *,
 *:after,
@@ -42,11 +40,11 @@ body {
 }
 
 .main-title {
+  @include text-shadow(#fff);
   font-family: $logo-font;
   font-size: 7em;
   margin: 0 0 3% 0;
-  // color: #fff;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  // text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 .back-story {
