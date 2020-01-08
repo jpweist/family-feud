@@ -108,10 +108,6 @@ describe('Game Class', function() {
     expect(game1.roundCount).to.equal(3);
   });
 
-  it.skip('should hold the turn answers', function() {
-    expect(game1.turn.answers).to.deep.equal({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 })
-  });
-
   it('should have a method to incrementRoundCount', function() {
     game1.incrementRoundCount();
     // console.log(game1.data.surveys.length)
@@ -122,18 +118,5 @@ describe('Game Class', function() {
     game1.findSurveys();
     expect(game1.surveys.length).to.equal(3);
   });
-
-  it('should have a method to start the round', function() {
-    game1.startRound()
-    expect(game1.round).to.deep.equal(
-      [ { survey: 'Name A Good Gift For Someone Who Is Always Late.',
-      answers: [ [Object] ] },
-      { survey:
-      'Name Something You Do To An Item Before Giving It As A Gift',
-      answers: [] },
-      { survey:
-      'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?',
-      answers: [ [Object], [Object] ] } ]);
-    });
 
 });
