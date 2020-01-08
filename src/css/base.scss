@@ -224,7 +224,7 @@ input {
   margin: 1%;
 }
 
-.current-turn {
+.current-turn, .incorrect {
   align-self: center;
   margin-bottom: 2%;
   font-size: .8em;
@@ -283,10 +283,9 @@ input {
   border-radius: none;
   background: black;
   color: white;
-  margin: 3%;
 }
 
-.info-container {
+.info-container, .winners-page {
   background-color: #fff;
   position: fixed;
   top: 10%;
@@ -298,6 +297,11 @@ input {
   flex-direction: column;
   align-items: center;
   padding-top: 5%;
+}
+
+.congrats {
+  font-size: 3em;
+  font-family: $logo-font;
 }
 
 .start-new-game-question {
