@@ -1,7 +1,14 @@
 $logo-font: 'Girassol', cursive;
 $body-font: 'Raleway', sans-serif;
+
 $logo-color: #EFE043;
+$error-color: red;
+$title-prefix-color: #fff;
+$story-content-color: #fff;
+$start-btn-text-color: #fff;
+
 $text-shadow-color-dark: black;
+$text-shadow-color-light: #fff;
 
 @mixin text-shadow($color) {
   text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
