@@ -58,7 +58,8 @@ class Game {
     );
     this.loadSurvey(this.currentSurvey);
     this.loadAnswers(this.currentSurvey);
-    this.loadRespondents(this.currentSurvey);
+    this.loadRespondents(this.currentSurvey)
+    // domUpdates.loadPlayerNames();
     this.currentSurvey++
   }
 
@@ -74,5 +75,7 @@ class Game {
   loadRespondents(i) {
     domUpdates.displayRespondents(this.surveys[i].answers)
   }
+
+  
 }
 export default Game;
