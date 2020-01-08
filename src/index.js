@@ -31,6 +31,7 @@ $(".start-btn").click(() => {
   console.log(game.player1)
   console.log(game.player2)
   checkInput()
+  $(".ninja-pic").addClass("slide-in")
 })
 
 const checkInput = () => {
@@ -74,6 +75,9 @@ function checkAnswer() {
   })
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
+  $(".ninja-pic").toggleClass("slide-in")
+  $(".zombie-pic").toggleClass("slide-in")
+
 }
 
 function changeName() {
@@ -89,12 +93,8 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
-    //insert incrementer , increment.
-    //when solved counter is divisible by 3
-    //move to next round, increment roundCount.
-    //invoke startRound()
+  }
 
-  } 
 }
 
 function nextRound() {
