@@ -1,11 +1,4 @@
 import $ from 'jquery';
-// import apiData from '../src/index.js';
-// import Player from './player';
-// import Game from './game';
-// import Turn from './turn';
-// import Round from './round';
-// import './index';
-// import data from './data.js';
 
 const domUpdates = {
   newGameBtn() {
