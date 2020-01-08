@@ -2,7 +2,7 @@ import $ from 'jquery';
 import domUpdates from './domUpdates.js'
 import Game from './game';
 import './css/base.scss';
-let game;
+let game, leaderScores;
 let turn = 1;
 
 const playerName = $('.plyr-input');
@@ -130,8 +130,69 @@ function checkForWinner() {
   if (game.solvedCounter === 9) {
     setTimeout(function() {
       domUpdates.displayWinnerPage(game)
+      getWinnerStats()
     }, 3000)
   }
+}
+
+function getWinnerStats() {
+  let winner;
+  game.player1.score > game.player2.score ? winner = game.player1 : winner = game.player2;
+  let highScore = {
+    appId: "1909CSKMJW",
+    playerName: winner.name,
+    playerScore: winner.score
+  }
+  sendHighScore(highScore);
+}
+
+const sendHighScore = async (score) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(score)
+  };
+  const response = await fetch(
+    'http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard',
+    options
+  );
+  if (!response.ok) {
+    throw new Error(
+      `Could not post your sick score.  Play again.`
+    );
+  }
+  const data = await response.json();
+  return data;
+};
+
+const getHighScores = () => {
+  fetch("http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard")
+    .then(response => response.json())
+    // .then(scores => postLeaderboard(scores))
+    .then(scores => postLeaderboard(scores.highScores))
+    .catch(error => console.log(error))
+}
+
+getHighScores();
+
+const postLeaderboard = (scores) => {
+  leaderScores = scores.filter(score => {
+    return score.appId === "1909CSKMJW";
+  })
+}
+
+const openLeaderboard = () => {
+  $(".leaderboard").toggleClass("hide-class")
+  leaderScores.forEach(score => {
+    $(".leaderboard").append(`<p class="top-players">Player: ${score.playerName} - Score: ${score.playerScore}</p>`)
+  })
+}
+
+const closeLeaderboard = () => {
+  $(".leaderboard").toggleClass("hide-class")
+  $(".top-players").remove()
 }
 
 // Event Listeners
@@ -143,3 +204,5 @@ $(".new-game-btn-check").click(domUpdates.restartGame)
 $(".new-game-btn-go-back").click(domUpdates.backToGame);
 $('.quit-game-btn').click(domUpdates.quitGame)
 $(".submit-btn").click(checkAnswer);
+$(".leaderboard-btn").click(openLeaderboard)
+$(".close-lb-btn").click(closeLeaderboard)
