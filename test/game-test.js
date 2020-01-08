@@ -43,7 +43,7 @@ describe('Game Class', function() {
     // round1 = new Round(surveys1, playerT1, playerT2, 1);
 
     game1 = new Game(gameData);
-    game1.getPlayers('steve', 'mike');
+    game1.getPlayers('Steve', 'Jeff');
 
 
   });
@@ -81,19 +81,16 @@ describe('Game Class', function() {
   });
 
   it('should hold player1 object', function() {
-    expect(game1.player1).to.deep.equal({name: 'steve', score: 0 });
+    expect(game1.player1).to.deep.equal({name: 'Steve', score: 0 });
   });
 
   it('should hold instigate player1 and player2 ', function() {
-    expect(game1.player1.name).to.equal('steve');
-    expect(game1.player2.name).to.equal('mike');
+    expect(game1.player1.name).to.equal('Steve');
+    expect(game1.player2.name).to.equal('Jeff');
   });
 
-  it('should hold round.player2 name', function() {
-    // game1.getPlayers('Jeff', 'Mike');
-    // game1.findSurveys();
-    // game1.startRound('Jeff', 'Mike', 1);
-    expect(game1.player1.name).to.equal('Jeff');
+  it('should hold round.player1 name', function() {
+    expect(game1.player1.name).to.equal('Steve');
   });
 
   it('should hold round.player2 score', function() {
@@ -103,44 +100,23 @@ describe('Game Class', function() {
     expect(game1.player2.score).to.equal(0);
   });
 
-  it.skip('should hold and track number of rounds', function() {
-    expect(game1.roundCount).to.equal(0);
-    game1.startRound();
+  it('should hold and track number of rounds', function() {
     expect(game1.roundCount).to.equal(1);
-    game1.startRound();
+    game1.incrementRoundCount();
     expect(game1.roundCount).to.equal(2);
+    game1.incrementRoundCount();
+    expect(game1.roundCount).to.equal(3);
   });
 
-  it.skip('should hold the turn answers', function() {
-    expect(game1.turn.answers).to.deep.equal({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 })
-  });
-
-  it.skip('should have a method to to find surveys', function() {
-    game1.findSurveys();
+  it('should have a method to incrementRoundCount', function() {
+    game1.incrementRoundCount();
     // console.log(game1.data.surveys.length)
-    expect(game1.surveys).to.deep.equal(['If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?', 'Name Something You Do To An Item Before Giving It As A Gift', 'Name A Good Gift For Someone Who Is Always Late.']);
+    expect(game1.roundCount).to.equal(2);
   });
 
   it('should have a hold 3 surveys', function() {
     game1.findSurveys();
     expect(game1.surveys.length).to.equal(3);
-  });
-
-  it.skip('should have a method to start the round', function() {
-    game1.findSurveys()
-    expect(game1.round).to.deep.equal(
-      [ { survey: 'Name A Good Gift For Someone Who Is Always Late.',
-      answers: [ [Object] ] },
-      { survey:
-      'Name Something You Do To An Item Before Giving It As A Gift',
-      answers: [] },
-      { survey:
-      'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?',
-      answers: [ [Object], [Object] ] } ]);
-    });
-
-  it.skip('should have a method to start fast round', function() {
-    expect(true).to.equal(false);
   });
 
 });
