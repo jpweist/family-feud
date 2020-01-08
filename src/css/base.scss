@@ -224,11 +224,17 @@ input {
   margin: 1%;
 }
 
-.current-turn, .incorrect {
+.current-turn {
   align-self: center;
   margin-bottom: 2%;
   font-size: .7em;
   margin-top: -40px;
+}
+
+.incorrect {
+  margin: 2%;
+  font-size: .5em;
+  color: red;
 }
 
 .question {

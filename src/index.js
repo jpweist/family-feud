@@ -1,14 +1,9 @@
 import $ from 'jquery';
-import Player from './player';
-import Turn from './turn';
-import Round from './round';
 import domUpdates from './domUpdates.js'
 import Game from './game';
 import './css/base.scss';
 let game;
 let turn = 1;
-
-
 
 const playerName = $('.plyr-input');
 let answerInput = $('.answer-input')
@@ -19,19 +14,16 @@ const getApiData = () => {
     .then(apiData => startGame(apiData))
     .catch(error => console.log(error))
 }
+
 getApiData();
 
 function startGame(data) {
   game = new Game(data.data);
   game.findSurveys();
-  
 }
-
 
 $(".start-btn").click(() => {
   game.getPlayers($(".plyr-input:eq(0)").val(), $(".plyr-input:eq(1)").val());
-  console.log(game.player1)
-  console.log(game.player2)
   checkInput()
   domUpdates.loadPlayerNames(game);
   $(".ninja-pic").addClass("slide-in")
@@ -58,14 +50,10 @@ const checkInput = () => {
 }
 
 function flipCard() {
-  // console.log('hi')
   $(this).toggleClass("flip");
 }
 
 function checkAnswer() {
-
-  
-  
   changeName()
   event.preventDefault();
   let currentAnswers = []
@@ -74,8 +62,6 @@ function checkAnswer() {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
       takeTurn(i, response, turn);
-      //find the index of the correct answer that was just entered
-      //use splice to remove that specific index from the current answers array
       $('.incorrect').removeClass('in').addClass('out')
     } else {
       $('.incorrect').removeClass('out').addClass('in')
@@ -87,7 +73,6 @@ function checkAnswer() {
   })
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
-  console.log(currentAnswers)
   switchIcons();
 }
 
@@ -95,7 +80,6 @@ let switchIcons = () => {
   $(".ninja-pic").toggleClass("slide-in")
   $(".zombie-pic").toggleClass("slide-in")
 }
-
 
 function changeName() {
   $('.p2-name' ).toggleClass( "hide-class" )
@@ -110,9 +94,8 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
-
-  } 
- }
+  }
+}
 
 function nextRound() {
   if (game.solvedCounter % 3 === 0 && game.solvedCounter !== 9) {
@@ -127,6 +110,7 @@ function nextRound() {
 }
 
 function checkForWinner() {
+  console.log(game.player1.score, game.player2.score)
   if (game.solvedCounter === 9) {
     setTimeout(function() {
       domUpdates.displayWinnerPage(game)

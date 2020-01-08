@@ -40,9 +40,17 @@ const domUpdates = {
   },
 
   displayWinnerPage(game) {
+    let winner;
+    if (game.player1.score > game.player2.score) {
+      winner = game.player1
+    } else {
+      winner = game.player2
+    }
+    console.log(winner.name, winner.score)
     $('.winners-page').toggle('.hide-class');
-    $('.winner-name').text(game.player1.name)
-    $('.winner-score').text(game.player1.score);
+    $('.winner-name').text(winner.name)
+    $('.winner-score').text(winner.score);
+
   },
 
   displayGamePage() {
