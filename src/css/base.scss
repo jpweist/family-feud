@@ -308,6 +308,26 @@ input {
   padding-top: 5%;
 }
 
+.leaderboard {
+  background-color: white;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  border: solid #000 1px;
+  height: 75%;
+  width: 75%;
+}
+
+.close-lb-btn {
+  width: 10%;
+  height: 5%;
+  border: black 1px solid;
+}
+
+.top-players {
+  margin: 10%
+}
+
 .winners-page {
   background-position: right;
   background-repeat: no-repeat;
@@ -357,6 +377,7 @@ input {
 .leaderboard-btn {
   width: 40%;
   height: 8%;
+  margin-left: 5%;
 }
 
 .new-quit-container {
