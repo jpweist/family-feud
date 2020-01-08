@@ -416,3 +416,34 @@ input {
 .show-class {
   display: block;
 }
+
+
+.ninja-pic {
+  background-image: url("../images/ninja.svg");
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: -500%;
+  top: 35%;
+  transition: 1s;
+}
+
+.ninja-pic.slide-in {
+  transition: 1s;
+  left: 12%;
+}
+
+.zombie-pic {
+  background-image: url("../images/zombie.svg");
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  right: -500px;
+  top: 35%;
+  transition: 1s;
+}
+
+.zombie-pic.slide-in {
+  transition: 1s;
+  right: 12%;
+}
