@@ -69,7 +69,7 @@ const domUpdates = {
 
   displayRespondents(respondents) {
     for (var i = 0; i < 3; i++) {
-      $(`.respondent${i + 1}`).text(respondents[i].respondents)
+      $(`.respondent${i + 1}`).text(` - ${respondents[i].respondents}`)
     }
   }
 }
