@@ -93,7 +93,7 @@ body {
 
 .start-btn {
   width: 30%;
-  height: 40px;;
+  height: 40px;
   align-self: center;
   font-size: 1em;
   font-family: $body-font;
@@ -127,7 +127,7 @@ body {
   radial-gradient(#f4eeb7 10%, transparent 20%);
   background-position: 5 5, 60px 50px;
   background-size: 50px 50px;
-  border: 1px solid gold;
+  border: 1px solid $logo-bg-border-color;
   border-radius: 100px;
   width: 600px;
   height: 200px;
@@ -185,7 +185,7 @@ input {
   justify-content: row;
   flex-wrap: wrap;
   font-family: $body-font;
-  color: #f4eeb7;
+  color: $player-input-color;
   align-content: space-between;
   margin: auto;
   width: 80%;
@@ -242,11 +242,9 @@ input {
 }
 
 .answers-container {
-  // align-self: stretch;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  // width: 30%;
   height: 300px;
   perspective: 1000px;
   padding: 0 40% 0 40%;
@@ -257,7 +255,7 @@ input {
 }
 
 .answers td, .answers th {
-  border: 1px solid #ddd;
+  border: 1px solid $answers-td-th;
   padding: 8px;
 }
 
@@ -292,11 +290,11 @@ input {
 }
 
 .info-container, .winners-page {
-  background-color: #fff;
+  background-color: $text-shadow-color-light;
   position: fixed;
   top: 10%;
   left: 10%;
-  border: solid #000 1px;
+  border: solid $text-shadow-color-dark 1px;
   height: 75%;
   width: 75%;
   display: flex;
@@ -335,7 +333,6 @@ input {
   @extend .new-game-btn
 
 }
-
 
 .plyr-info {
   display: flex;
@@ -410,13 +407,11 @@ input {
 
 .reveal-answer {
   transform: rotateY(180deg);
-  // margin: 10px;
   height: 100%;
   width: 100%;
   border: 3px solid $text-shadow-color-light;
   border-radius: 5px;
   background-color: $text-shadow-color-dark;
-  // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
   padding-top: 15px;
 }
 
@@ -440,7 +435,6 @@ input {
 .show-class {
   display: block;
 }
-
 
 .ninja-pic {
   background-image: url("../images/ninja.svg");
