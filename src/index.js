@@ -33,7 +33,11 @@ $(".start-btn").click(() => {
   console.log(game.player1)
   console.log(game.player2)
   checkInput()
+<<<<<<< HEAD
   domUpdates.loadPlayerNames(game);
+=======
+  $(".ninja-pic").addClass("slide-in")
+>>>>>>> 73974436c87f80efd2624a5f8dd3c4d990aea58a
 })
 
 const checkInput = () => {
@@ -86,7 +90,16 @@ function checkAnswer() {
   })
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
+<<<<<<< HEAD
   console.log(currentAnswers)
+=======
+  switchIcons();
+}
+
+let switchIcons = () => {
+  $(".ninja-pic").toggleClass("slide-in")
+  $(".zombie-pic").toggleClass("slide-in")
+>>>>>>> 73974436c87f80efd2624a5f8dd3c4d990aea58a
 }
 
 
@@ -103,7 +116,12 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
+<<<<<<< HEAD
   } 
+=======
+  }
+
+>>>>>>> 73974436c87f80efd2624a5f8dd3c4d990aea58a
 }
 
 function nextRound() {
