@@ -33,10 +33,6 @@ describe('Round Class', function() {
     expect(round1.roundCount).to.equal(1);
   });
 
-  it.skip('should hold the players guesses', function() {
-    expect(true).to.equal(false);
-  });
-
   it.skip('should hold answers revealed', function() {
     expect(true).to.equal(false);
   })
