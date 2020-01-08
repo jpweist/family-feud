@@ -43,8 +43,10 @@ const domUpdates = {
     let winner;
     if (game.player1.score > game.player2.score) {
       winner = game.player1
+      $('.winners-page').addClass('ninja')
     } else {
       winner = game.player2
+      $('.winners-page').addClass('zombie')
     }
     $('.winners-page').toggle('.hide-class');
     $('.winner-name').text(winner.name)
