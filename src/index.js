@@ -34,6 +34,7 @@ $(".start-btn").click(() => {
   console.log(game.player2)
   checkInput()
   domUpdates.loadPlayerNames(game);
+  $(".ninja-pic").addClass("slide-in")
 })
 
 const checkInput = () => {
@@ -87,6 +88,12 @@ function checkAnswer() {
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
   console.log(currentAnswers)
+  switchIcons();
+}
+
+let switchIcons = () => {
+  $(".ninja-pic").toggleClass("slide-in")
+  $(".zombie-pic").toggleClass("slide-in")
 }
 
 
@@ -103,8 +110,9 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
+
   } 
-}
+ }
 
 function nextRound() {
   if (game.solvedCounter % 3 === 0 && game.solvedCounter !== 9) {
