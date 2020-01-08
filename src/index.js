@@ -2,7 +2,7 @@ import $ from 'jquery';
 import domUpdates from './domUpdates.js'
 import Game from './game';
 import './css/base.scss';
-let game;
+let game, leaderScores;
 let turn = 1;
 
 const playerName = $('.plyr-input');
@@ -178,11 +178,21 @@ const getHighScores = () => {
 getHighScores();
 
 const postLeaderboard = (scores) => {
-  let leaderScores = scores.filter(score => {
-    // console.log(score)
+  leaderScores = scores.filter(score => {
     return score.appId === "1909CSKMJW";
   })
-  console.log(leaderScores)
+}
+
+const openLeaderboard = () => {
+  $(".leaderboard").toggleClass("hide-class")
+  leaderScores.forEach(score => {
+    $(".leaderboard").append(`<p class="top-players">Player: ${score.playerName} - Score: ${score.playerScore}</p>`)
+  })
+}
+
+const closeLeaderboard = () => {
+  $(".leaderboard").toggleClass("hide-class")
+  $(".top-players").remove()
 }
 
 // Event Listeners
@@ -194,3 +204,5 @@ $(".new-game-btn-check").click(domUpdates.restartGame)
 $(".new-game-btn-go-back").click(domUpdates.backToGame);
 $('.quit-game-btn').click(domUpdates.quitGame)
 $(".submit-btn").click(checkAnswer);
+$(".leaderboard-btn").click(openLeaderboard)
+$(".close-lb-btn").click(closeLeaderboard)
