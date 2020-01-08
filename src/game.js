@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Player from './player';
 import Round from './round';
 import domUpdates from '../src/domUpdates.js'
@@ -30,10 +29,9 @@ class Game {
   findSurveys() {
     while (this.surveys.length < 3) {
       let num = Math.ceil(Math.random() * this.data.surveys.length);
-      // if (this.surveys.indexOf(num) === -1) this.surveys.push(this.data.surveys[num]);
-      // if (this.answers.indexOf(num) === -1) this.answers.push(this.data.answers[num]);
-      if (this.surveys.indexOf(num) === -1) this.surveys.push(num);
-      // console.log(this.surveys)
+      if (this.surveys.indexOf(num) === -1) {
+        this.surveys.push(num);
+      }
     }
     this.surveys = this.surveys.map(id => {
       let survey = this.data.surveys.find(survey => survey.id === id);
@@ -45,7 +43,6 @@ class Game {
     this.surveys.forEach(survey =>
       survey.answers.sort((a, b) => b.respondents - a.respondents)
     );
-    // console.log('Game this.surveys', this.surveys[0])
     this.startRound();
   }
 
@@ -59,13 +56,11 @@ class Game {
     this.loadSurvey(this.currentSurvey);
     this.loadAnswers(this.currentSurvey);
     this.loadRespondents(this.currentSurvey)
-    // domUpdates.loadPlayerNames();
     this.currentSurvey++
   }
 
   loadSurvey(i) {
     domUpdates.displayNewQuestion(this.surveys[i])
-    console.log(this.surveys)
   }
 
   loadAnswers(i) {
@@ -75,7 +70,5 @@ class Game {
   loadRespondents(i) {
     domUpdates.displayRespondents(this.surveys[i].answers)
   }
-
-  
 }
 export default Game;

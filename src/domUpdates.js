@@ -1,28 +1,21 @@
 import $ from 'jquery';
-// import apiData from '../src/index.js';
-import Player from './player';
-import Game from './game';
-import Turn from './turn';
-import Round from './round';
-// import './index';
-import data from './data.js';
 
 const domUpdates = {
   newGameBtn() {
     $(".info-container").toggle(".hide-class");
     $(".start-new-game-question").toggle(".hide-class");
-
   },
+
   restartGame() {
     location.reload();
-
   },
+
   quitGame() {
     location.reload();
   },
+
   backToGame() {
     $(".start-new-game-question").toggle(".hide-class");
-
   },
 
   openInfo() {
@@ -53,21 +46,17 @@ const domUpdates = {
     } else {
       winner = game.player2
     }
-    console.log(winner.name, winner.score)
     $('.winners-page').toggle('.hide-class');
     $('.winner-name').text(winner.name)
     $('.winner-score').text(winner.score);
-
   },
 
   displayGamePage() {
     $(".gameplay-page").toggle(".hide-class");
     $(".start-new-game-question").removeClass("hide-class");
-    // this.loadPlayerNames();
   },
 
   loadPlayerNames(game) {
-    // console.log(game.player1)
     $(".p1-name").text(game.player1.name);
     $(".p2-name").text(game.player2.name);
   },

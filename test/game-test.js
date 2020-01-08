@@ -1,17 +1,14 @@
-import $ from 'jquery';
 import chai from 'chai';
 const expect = chai.expect;
 import spies from 'chai-spies';
-import data from '../src/data';
 import domUpdates from '../src/domUpdates';
 import Game from '../src/game';
 import Player from '../src/player';
 import Turn from '../src/turn';
-import Round from '../src/round';
 
 chai.use(spies);
 
-let game1, surveys1, answers1, playerT1, playerT2, turn1, round1, gameData;
+let game1, surveys1, answers1, playerT1, playerT2, turn1, gameData;
 
 describe('Game Class', function() {
   beforeEach(() => {
@@ -54,7 +51,7 @@ describe('Game Class', function() {
   afterEach(() => {
     chai.spy.restore();
   });
-  
+
   it('should hold the data', function() {
 
     expect(game1.data).to.deep.equal({
