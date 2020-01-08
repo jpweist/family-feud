@@ -75,9 +75,12 @@ function checkAnswer() {
   })
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
+  switchIcons();
+}
+
+let switchIcons = () => {
   $(".ninja-pic").toggleClass("slide-in")
   $(".zombie-pic").toggleClass("slide-in")
-
 }
 
 function changeName() {
