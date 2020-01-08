@@ -4,11 +4,10 @@ import spies from 'chai-spies';
 import domUpdates from '../src/domUpdates';
 import Game from '../src/game';
 import Player from '../src/player';
-import Turn from '../src/turn';
 
 chai.use(spies);
 
-let game1, surveys1, answers1, playerT1, playerT2, turn1, gameData;
+let game1, surveys1, answers1, playerT1, playerT2, gameData;
 
 describe('Game Class', function() {
   beforeEach(() => {
@@ -39,8 +38,6 @@ describe('Game Class', function() {
     answers1 = { answer: 'Alarm Clock', respondents: 34, surveyId: 3 };
     playerT1 = new Player('Steve');
     playerT2 = new Player('Jeff');
-    turn1 = new Turn(playerT1, answers1);
-    // round1 = new Round(surveys1, playerT1, playerT2, 1);
 
     game1 = new Game(gameData);
     game1.getPlayers('Steve', 'Jeff');
