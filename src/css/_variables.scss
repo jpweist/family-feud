@@ -1,7 +1,7 @@
 $logo-font: 'Girassol', cursive;
 $body-font: 'Raleway', sans-serif;
 $logo-color: #EFE043;
-
+$text-shadow-color-dark: black;
 
 @mixin text-shadow($color) {
   text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
