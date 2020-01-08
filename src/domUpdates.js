@@ -1,11 +1,11 @@
 import $ from 'jquery';
 // import apiData from '../src/index.js';
-import Player from './player';
-import Game from './game';
-import Turn from './turn';
-import Round from './round';
+// import Player from './player';
+// import Game from './game';
+// import Turn from './turn';
+// import Round from './round';
 // import './index';
-import data from './data.js';
+// import data from './data.js';
 
 const domUpdates = {
   newGameBtn() {
@@ -46,7 +46,7 @@ const domUpdates = {
     this.displayGamePage();
   },
 
-  displayWinnerPage(game, score) {
+  displayWinnerPage(game) {
     $('.winners-page').toggle('.hide-class');
     $('.winner-name').text(game.player1.name)
     $('.winner-score').text(game.player1.score);
