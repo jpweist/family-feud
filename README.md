@@ -4,7 +4,7 @@ The year is 2020. An unknown zombie virus has spread wildly across the Americas,
 Based off the TV show Family Feud. The game project technologies used: HTML, SCSS, JS, WebPack, Mocha Testing Framwork and Chai Assertion Library, along with the Fetch API.
 
 play the game at:
-# https://kimmccaskill.github.io/family-feud/ ## verify link
+# https://kimmccaskill.github.io/family-feud/src/index.html 
 
 
 ![](https://github.com/kimmccaskill/family-feud/blob/master/ninja-vs-zombie.gif)  
