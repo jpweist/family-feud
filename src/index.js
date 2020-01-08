@@ -109,8 +109,9 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
+
   } 
-}
+ }
 
 function nextRound() {
   if (game.solvedCounter % 3 === 0 && game.solvedCounter !== 9) {
