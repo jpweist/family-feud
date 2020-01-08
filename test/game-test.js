@@ -112,10 +112,10 @@ describe('Game Class', function() {
     expect(game1.turn.answers).to.deep.equal({ answer: 'Alarm Clock', respondents: 34, surveyId: 3 })
   });
 
-  it.skip('should have a method to to find surveys', function() {
-    game1.findSurveys();
+  it('should have a method to incrementRoundCount', function() {
+    game1.incrementRoundCount();
     // console.log(game1.data.surveys.length)
-    expect(game1.surveys).to.deep.equal(['If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?', 'Name Something You Do To An Item Before Giving It As A Gift', 'Name A Good Gift For Someone Who Is Always Late.']);
+    expect(game1.roundCount).to.equal(2);
   });
 
   it('should have a hold 3 surveys', function() {
@@ -123,8 +123,8 @@ describe('Game Class', function() {
     expect(game1.surveys.length).to.equal(3);
   });
 
-  it.skip('should have a method to start the round', function() {
-    game1.findSurveys()
+  it('should have a method to start the round', function() {
+    game1.startRound()
     expect(game1.round).to.deep.equal(
       [ { survey: 'Name A Good Gift For Someone Who Is Always Late.',
       answers: [ [Object] ] },
@@ -135,9 +135,5 @@ describe('Game Class', function() {
       'If You Drew Homer Simpson’s Name In A Secret Santa Exchange, What Would You Buy Him?',
       answers: [ [Object], [Object] ] } ]);
     });
-
-  it.skip('should have a method to start fast round', function() {
-    expect(true).to.equal(false);
-  });
 
 });
