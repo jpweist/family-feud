@@ -46,11 +46,9 @@ const domUpdates = {
     } else {
       winner = game.player2
     }
-    console.log(winner.name, winner.score)
     $('.winners-page').toggle('.hide-class');
     $('.winner-name').text(winner.name)
     $('.winner-score').text(winner.score);
-
   },
 
   displayGamePage() {
