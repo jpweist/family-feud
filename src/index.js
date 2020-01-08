@@ -110,6 +110,7 @@ function nextRound() {
 }
 
 function checkForWinner() {
+  console.log(game.player1.score, game.player2.score)
   if (game.solvedCounter === 9) {
     setTimeout(function() {
       domUpdates.displayWinnerPage(game)
