@@ -43,7 +43,7 @@ describe('Game Class', function() {
     // round1 = new Round(surveys1, playerT1, playerT2, 1);
 
     game1 = new Game(gameData);
-    game1.getPlayers('steve', 'mike');
+    game1.getPlayers('Steve', 'Jeff');
 
 
   });
@@ -81,19 +81,19 @@ describe('Game Class', function() {
   });
 
   it('should hold player1 object', function() {
-    expect(game1.player1).to.deep.equal({name: 'steve', score: 0 });
+    expect(game1.player1).to.deep.equal({name: 'Steve', score: 0 });
   });
 
   it('should hold instigate player1 and player2 ', function() {
-    expect(game1.player1.name).to.equal('steve');
-    expect(game1.player2.name).to.equal('mike');
+    expect(game1.player1.name).to.equal('Steve');
+    expect(game1.player2.name).to.equal('Jeff');
   });
 
-  it('should hold round.player2 name', function() {
+  it('should hold round.player1 name', function() {
     // game1.getPlayers('Jeff', 'Mike');
     // game1.findSurveys();
     // game1.startRound('Jeff', 'Mike', 1);
-    expect(game1.player1.name).to.equal('Jeff');
+    expect(game1.player1.name).to.equal('Steve');
   });
 
   it('should hold round.player2 score', function() {
