@@ -1,6 +1,4 @@
-$logo-font: 'Girassol', cursive;
-$body-font: 'Raleway', sans-serif;
-$logo-color: #EFE043;
+@import 'variables';
 
 *,
 *:after,
@@ -16,7 +14,7 @@ body {
 }
 
 .error1, .error2 {
-  color: red;
+  color: $error-color;
 }
 
 .main-container {
@@ -35,18 +33,17 @@ body {
 }
 
 .title-prefix {
+  @include text-shadow($text-shadow-color-dark);
   margin: 5% 0 0 0;
   font-size: 2em;
-  color: #fff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: $title-prefix-color;
 }
 
 .main-title {
+  @include text-shadow($text-shadow-color-light);
   font-family: $logo-font;
   font-size: 7em;
   margin: 0 0 3% 0;
-  // color: #fff;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 .back-story {
@@ -56,13 +53,13 @@ body {
 }
 
 .story-content {
+  @include text-shadow($text-shadow-color-dark);
   font-size: 1.3em;
   align-self: center;
   width: 60%;
   text-align: center;
   line-height: 1.5em;
-  color: #fff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: $story-content-color;
 }
 
 .input-container {
@@ -96,12 +93,12 @@ body {
 
 .start-btn {
   width: 30%;
-  height: 40px;;
+  height: 40px;
   align-self: center;
   font-size: 1em;
   font-family: $body-font;
   background: transparent;
-  color: #fff;
+  color: $start-btn-text-color;
 }
 
 .p1-name, .p2-name {
@@ -130,7 +127,7 @@ body {
   radial-gradient(#f4eeb7 10%, transparent 20%);
   background-position: 5 5, 60px 50px;
   background-size: 50px 50px;
-  border: 1px solid gold;
+  border: 1px solid $logo-bg-border-color;
   border-radius: 100px;
   width: 600px;
   height: 200px;
@@ -155,7 +152,7 @@ body {
 }
 
 .ff-logo {
-  text-shadow: 0px 0px 5px #000000;
+  text-shadow: 0px 0px 5px $text-shadow-color-dark;
   margin-top: 40px;
 }
 
@@ -168,12 +165,12 @@ body {
   text-align: center;
   font-family: $logo-font;
   font-size: 2em;
-  color: white;
+  color: $text-shadow-color-light;
 }
 
 .instructions-text {
   font-size: 1.5em;
-  color: white;
+  color: $text-shadow-color-light;
   line-height: 1.5em;
   font-family: $body-font;
   text-align: center;
@@ -188,7 +185,7 @@ input {
   justify-content: row;
   flex-wrap: wrap;
   font-family: $body-font;
-  color: #f4eeb7;
+  color: $player-input-color;
   align-content: space-between;
   margin: auto;
   width: 80%;
@@ -200,7 +197,7 @@ input {
   font-family: $logo-font;
   font-size: 2.5em;
   color: $logo-color;
-  text-shadow: 0px 0px 5px #000000;
+  text-shadow: 0px 0px 5px $text-shadow-color-dark;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -214,7 +211,7 @@ input {
 }
 
 .info-btn {
-  background: white;
+  background: $text-shadow-color-light;
   border-radius: 50%;
   color: #505CCD;
   font-size: .8em;
@@ -234,7 +231,7 @@ input {
 .incorrect {
   margin: 2%;
   font-size: .5em;
-  color: red;
+  color: $error-color;
 }
 
 .question {
@@ -245,11 +242,9 @@ input {
 }
 
 .answers-container {
-  // align-self: stretch;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  // width: 30%;
   height: 300px;
   perspective: 1000px;
   padding: 0 40% 0 40%;
@@ -260,7 +255,7 @@ input {
 }
 
 .answers td, .answers th {
-  border: 1px solid #ddd;
+  border: 1px solid $answers-td-th;
   padding: 8px;
 }
 
@@ -290,16 +285,16 @@ input {
   width: 20.5%;
   height: 4.5em;
   border-radius: none;
-  background: black;
-  color: white;
+  background: $text-shadow-color-dark;
+  color: $text-shadow-color-light;
 }
 
 .info-container, .winners-page {
-  background-color: #fff;
+  background-color: $text-shadow-color-light;
   position: fixed;
   top: 10%;
   left: 10%;
-  border: solid #000 1px;
+  border: solid $text-shadow-color-dark 1px;
   height: 75%;
   width: 75%;
   display: flex;
@@ -359,7 +354,6 @@ input {
 
 }
 
-
 .plyr-info {
   display: flex;
   justify-content: space-around;
@@ -397,8 +391,8 @@ input {
 .new-game-btn-check {
   height: 40px;
   font-size: 2em;
-  background-color: black;
-  color: red;
+  background-color: $text-shadow-color-dark;
+  color: $error-color;
 }
 
 .close-btn {
@@ -434,23 +428,21 @@ input {
 
 .reveal-answer {
   transform: rotateY(180deg);
-  // margin: 10px;
   height: 100%;
   width: 100%;
-  border: 3px solid white;
+  border: 3px solid $text-shadow-color-light;
   border-radius: 5px;
-  background-color: black;
-  // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+  background-color: $text-shadow-color-dark;
   padding-top: 15px;
 }
 
 .hidden-answer {
-  background-color: white;
+  background-color: $text-shadow-color-light;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
   width: 100%;
   height: 100%;
   text-align: center;
-  border: 3px solid white;
+  border: 3px solid $text-shadow-color-light;
   border-radius: 5px;
   padding-top: 15px;
 }
@@ -464,7 +456,6 @@ input {
 .show-class {
   display: block;
 }
-
 
 .ninja-pic {
   background-image: url("../images/ninja.svg");
@@ -502,7 +493,7 @@ input {
   top: 5%;
   z-index: 1000;
   font-size: 2em;
-  background-color: white;
+  background-color: $text-shadow-color-light;
   background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) );
   padding: 17% 30%;
 }
