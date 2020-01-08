@@ -130,9 +130,44 @@ function checkForWinner() {
   if (game.solvedCounter === 9) {
     setTimeout(function() {
       domUpdates.displayWinnerPage(game)
+      getWinnerStats()
     }, 3000)
   }
 }
+
+function getWinnerStats() {
+  let winner;
+  game.player1.score > game.player2.score ? winner = game.player1 : winner = game.player2;
+
+  let highScore = {
+    appId: "1909CSKMJW",
+    playerName: winner.name,
+    playerScore: winner.score
+  }
+  console.log(highScore)
+  sendHighScore(highScore);
+}
+
+const sendHighScore = async (score) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(score)
+  };
+  const response = await fetch(
+    'http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard',
+    options
+  );
+  if (!response.ok) {
+    throw new Error(
+      `Could not post your sick score.  Play again.`
+    );
+  }
+  const data = await response.json();
+  return data;
+};
 
 // Event Listeners
 $(".answer-card").click(flipCard);
