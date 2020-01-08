@@ -308,6 +308,19 @@ input {
   padding-top: 5%;
 }
 
+.winners-page {
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.ninja {
+  background-image: url('../images/ninja-winner.jpg');
+}
+
+.zombie {
+  background-image: url('../images/zombie-winner.jpg');
+}
+
 .congrats {
   font-size: 3em;
   font-family: $logo-font;
@@ -358,6 +371,13 @@ input {
 .quit-game-btn,
 .new-game-btn-check {
   width: 40%;
+}
+
+.new-game-btn-check {
+  height: 40px;
+  font-size: 2em;
+  background-color: black;
+  color: red;
 }
 
 .close-btn {
