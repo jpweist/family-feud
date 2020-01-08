@@ -7,7 +7,7 @@ play the game at:
 # https://kimmccaskill.github.io/family-feud/ ## verify link
 
 
-![](need gif)  ## verify giffy
+![](https://github.com/kimmccaskill/family-feud/blob/master/ninja-vs-zombie.gif)  
 
 
 To run this project on your local machine, do the following:
