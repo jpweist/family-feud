@@ -12,7 +12,8 @@ describe('Round Class', function() {
     answers1 = { answer: 'Alarm Clock', respondents: 34, surveyId: 3 };
     playerT1 = new Player('Steve');
     playerT2 = new Player('Jeff');
-    round1 = new Round(surveys1, playerT1, playerT2, 1);
+    round1 = new Round(surveys1, answers1, playerT1, playerT2);
+
 
   });
 
