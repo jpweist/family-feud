@@ -138,13 +138,11 @@ function checkForWinner() {
 function getWinnerStats() {
   let winner;
   game.player1.score > game.player2.score ? winner = game.player1 : winner = game.player2;
-
   let highScore = {
     appId: "1909CSKMJW",
     playerName: winner.name,
     playerScore: winner.score
   }
-  console.log(highScore)
   sendHighScore(highScore);
 }
 
@@ -168,6 +166,24 @@ const sendHighScore = async (score) => {
   const data = await response.json();
   return data;
 };
+
+const getHighScores = () => {
+  fetch("http://fe-apps.herokuapp.com/api/v1/gametime/leaderboard")
+    .then(response => response.json())
+    // .then(scores => postLeaderboard(scores))
+    .then(scores => postLeaderboard(scores.highScores))
+    .catch(error => console.log(error))
+}
+
+getHighScores();
+
+const postLeaderboard = (scores) => {
+  let leaderScores = scores.filter(score => {
+    // console.log(score)
+    return score.appId === "1909CSKMJW";
+  })
+  console.log(leaderScores)
+}
 
 // Event Listeners
 $(".answer-card").click(flipCard);
