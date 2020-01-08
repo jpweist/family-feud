@@ -4,18 +4,18 @@ const domUpdates = {
   newGameBtn() {
     $(".info-container").toggle(".hide-class");
     $(".start-new-game-question").toggle(".hide-class");
-
   },
+
   restartGame() {
     location.reload();
-
   },
+
   quitGame() {
     location.reload();
   },
+
   backToGame() {
     $(".start-new-game-question").toggle(".hide-class");
-
   },
 
   openInfo() {
@@ -43,17 +43,14 @@ const domUpdates = {
     $('.winners-page').toggle('.hide-class');
     $('.winner-name').text(game.player1.name)
     $('.winner-score').text(game.player1.score);
-
   },
 
   displayGamePage() {
     $(".gameplay-page").toggle(".hide-class");
     $(".start-new-game-question").removeClass("hide-class");
-    // this.loadPlayerNames();
   },
 
   loadPlayerNames(game) {
-    // console.log(game.player1)
     $(".p1-name").text(game.player1.name);
     $(".p2-name").text(game.player2.name);
   },
