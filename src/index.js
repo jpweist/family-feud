@@ -24,13 +24,16 @@ getApiData();
 function startGame(data) {
   game = new Game(data.data);
   game.findSurveys();
+  
 }
+
 
 $(".start-btn").click(() => {
   game.getPlayers($(".plyr-input:eq(0)").val(), $(".plyr-input:eq(1)").val());
   console.log(game.player1)
   console.log(game.player2)
   checkInput()
+  domUpdates.loadPlayerNames(game);
 })
 
 const checkInput = () => {
@@ -59,6 +62,9 @@ function flipCard() {
 }
 
 function checkAnswer() {
+
+  
+  
   changeName()
   event.preventDefault();
   let currentAnswers = []
@@ -67,14 +73,22 @@ function checkAnswer() {
     currentAnswers.push(response.answer.toLowerCase())
     if (currentAnswers.includes(answerInput.val().toLowerCase())) {
       takeTurn(i, response, turn);
+      //find the index of the correct answer that was just entered
+      //use splice to remove that specific index from the current answers array
+      $('.incorrect').removeClass('in').addClass('out')
     } else {
-      console.log('wrong.')
+      $('.incorrect').removeClass('out').addClass('in')
+      setTimeout(function () {
+        $('.incorrect').removeClass('in').addClass('out')
+      }, 1500)
     }
     i++;
   })
   answerInput.val("");
   turn === 1 ? turn = 2 : turn = 1;
+  console.log(currentAnswers)
 }
+
 
 function changeName() {
   $('.p2-name' ).toggleClass( "hide-class" )
@@ -89,16 +103,11 @@ function takeTurn(i, response, turn) {
     $(`.answer${i}`).closest('.answer-card').toggleClass("flip");
     game.solvedCounter ++;
     nextRound()
-    //insert incrementer , increment.
-    //when solved counter is divisible by 3
-    //move to next round, increment roundCount.
-    //invoke startRound()
-
   } 
 }
 
 function nextRound() {
-  if (game.solvedCounter % 3 === 0) {
+  if (game.solvedCounter % 3 === 0 && game.solvedCounter !== 9) {
     setTimeout(function () {
       game.incrementRoundCount()
       game.loadCurrentRound()
@@ -106,7 +115,15 @@ function nextRound() {
       $('.answer-card').toggleClass('flip')
     }, 5000)
   }
-  console.log(game.solvedCounter)
+  checkForWinner()
+}
+
+function checkForWinner() {
+  if (game.solvedCounter === 9) {
+    setTimeout(function() {
+      domUpdates.displayWinnerPage(game)
+    }, 5000)
+  }
 }
 
 // Event Listeners
